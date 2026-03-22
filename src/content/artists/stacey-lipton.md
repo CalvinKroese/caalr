@@ -1,9 +1,9 @@
 ---
 name: "Stacey Lipton"
 mediums:
-  - "Mixed Media"
-shortBio: "Stacey Lipton is a Mixed Media artist and member of the Creative Arts Association of Lakewood Ranch."
-email: ""
+  - "Watercolor"
+shortBio: "Stacey Lipton is a Watercolor artist and member of CAALR."
+email: "slinteriors140@msn.com"
 website: ""
 instagram: ""
 facebook: ""
@@ -11,8 +11,8 @@ featuredImage: "/uploads/artists/stacey-lipton/profile.jpg"
 galleryImages: []
 isBoardMember: true
 boardRole: "Vice President"
-sortOrder: 6
+sortOrder: 2
 status: "active"
 ---
 
-Stacey Lipton is a mixed media artist and Vice President of the Creative Arts Association of Lakewood Ranch.
+Stacey Lipton is a Watercolor artist and member of the Creative Arts Association of Lakewood Ranch.

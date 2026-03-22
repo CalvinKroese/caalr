@@ -1,11 +1,11 @@
 {
   "members": [
-    { "name": "Carol Krah", "role": "President", "email": "CarolRKrah@gmail.com", "artistSlug": "" },
-    { "name": "Stacey Lipton", "role": "Vice President", "email": "", "artistSlug": "" },
-    { "name": "Susan Perry", "role": "Secretary", "email": "", "artistSlug": "" },
-    { "name": "Benise Jones", "role": "Treasurer", "email": "", "artistSlug": "" },
-    { "name": "Barby Comins", "role": "At Large", "email": "", "artistSlug": "" },
-    { "name": "Wilma Kroese", "role": "At Large", "email": "", "artistSlug": "wilma-kroese" },
-    { "name": "Elaine Vaughn", "role": "At Large", "email": "", "artistSlug": "elaine-vaughn" }
+    { "name": "Carol Krah", "role": "President", "email": "CarolRKrah@gmail.com", "artistSlug": "carol-krah" },
+    { "name": "Stacey Lipton", "role": "Vice President", "email": "slinteriors140@msn.com", "artistSlug": "stacey-lipton" },
+    { "name": "Susan Perry", "role": "Secretary", "email": "perrysfl150@gmail.com", "artistSlug": "susan-perry" },
+    { "name": "Benise Jones", "role": "Treasurer", "email": "JMB2015@verizon.net", "artistSlug": "benise-jones" },
+    { "name": "Barby Cummings", "role": "At Large", "email": "barbedwiredesigns@yahoo.com", "artistSlug": "barby-cummings" },
+    { "name": "Wilma Kroese", "role": "At Large", "email": "WKpottery@yahoo.com", "artistSlug": "wilma-kroese" },
+    { "name": "Elaine Vaughn", "role": "At Large", "email": "Vaughne35@gmail.com", "artistSlug": "elaine-vaughn" }
   ]
 }

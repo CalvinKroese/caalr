@@ -3,7 +3,7 @@ title: "Carol Krah Featured in Local Media"
 date: 2025-01-15
 sourceName: "Local Press"
 sourceUrl: ""
-featuredImage: ""
+featuredImage: "/uploads/news/carol-krah.jpg"
 featured: true
 ---
 

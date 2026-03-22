@@ -3,7 +3,7 @@ title: "Wilma Kroese Recognized for Pottery Work"
 date: 2025-03-15
 sourceName: "Local Press"
 sourceUrl: ""
-featuredImage: ""
+featuredImage: "/uploads/news/wilma-kroese.jpg"
 featured: true
 ---
 

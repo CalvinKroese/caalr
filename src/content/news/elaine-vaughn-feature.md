@@ -3,7 +3,7 @@ title: "Elaine Vaughn Spotlighted for Jewelry Art"
 date: 2025-02-15
 sourceName: "Local Press"
 sourceUrl: ""
-featuredImage: ""
+featuredImage: "/uploads/news/elaine-vaughn.jpg"
 featured: true
 ---
 

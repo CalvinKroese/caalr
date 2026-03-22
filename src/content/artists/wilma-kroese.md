@@ -2,7 +2,7 @@
 name: "Wilma Kroese"
 mediums:
   - "Pottery"
-shortBio: "Wilma Kroese is a Pottery artist and member of the Creative Arts Association of Lakewood Ranch."
+shortBio: "Wilma Kroese is a Pottery artist and member of CAALR."
 email: "WKpottery@yahoo.com"
 website: ""
 instagram: ""
@@ -11,8 +11,8 @@ featuredImage: "/uploads/artists/wilma-kroese/profile.jpg"
 galleryImages: []
 isBoardMember: true
 boardRole: "At Large"
-sortOrder: 11
+sortOrder: 6
 status: "active"
 ---
 
-Wilma Kroese is a pottery artist and member of the Creative Arts Association of Lakewood Ranch. Her work includes handcrafted stoneware and raku-fired pieces.
+Wilma Kroese is a Pottery artist and member of the Creative Arts Association of Lakewood Ranch.

@@ -1,8 +1,8 @@
 ---
 name: "Carol Krah"
 mediums:
-  - "Watercolor"
-shortBio: "Carol Krah is a Watercolor artist and member of the Creative Arts Association of Lakewood Ranch."
+  - "Stained Glass"
+shortBio: "Carol Krah is a Stained Glass artist and member of CAALR."
 email: "CarolRKrah@gmail.com"
 website: ""
 instagram: ""
@@ -11,8 +11,8 @@ featuredImage: "/uploads/artists/carol-krah/profile.jpg"
 galleryImages: []
 isBoardMember: true
 boardRole: "President"
-sortOrder: 5
+sortOrder: 1
 status: "active"
 ---
 
-Carol Krah is a watercolor artist and President of the Creative Arts Association of Lakewood Ranch.
+Carol Krah is a Stained Glass artist and member of the Creative Arts Association of Lakewood Ranch.
