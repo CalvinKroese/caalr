@@ -42,7 +42,7 @@ const featuredGallery = await getFeaturedGallery(6);
           {upcomingEvents.slice(0, 3).map((event) => (
             <EventCard
               title={event.data.title}
-              slug={event.id}
+              slug={event.id.replace(/\.md$/, '')}
               startDate={event.data.startDate}
               venueName={event.data.venueName}
               featuredImage={event.data.featuredImage}
@@ -64,7 +64,7 @@ const featuredGallery = await getFeaturedGallery(6);
           {featuredArtists.map((artist) => (
             <ArtistCard
               name={artist.data.name}
-              slug={artist.data.slug}
+              slug={artist.id.replace(/\.md$/, '')}
               mediums={artist.data.mediums}
               shortBio={artist.data.shortBio}
               featuredImage={artist.data.featuredImage}

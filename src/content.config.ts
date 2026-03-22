@@ -4,7 +4,6 @@ const artists = defineCollection({
   type: 'content',
   schema: z.object({
     name: z.string(),
-    slug: z.string(),
     mediums: z.array(z.string()).default([]),
     shortBio: z.string().default(''),
     email: z.string().optional().default(''),

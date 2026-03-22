@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content';
 export async function getStaticPaths() {
   const artists = await getCollection('artists');
   return artists.map((artist) => ({
-    params: { slug: artist.data.slug },
+    params: { slug: artist.id.replace(/\.md$/, '') },
     props: { artist },
   }));
 }

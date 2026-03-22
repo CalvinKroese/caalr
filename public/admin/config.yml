@@ -10,14 +10,13 @@ collections:
     label: "Artists"
     folder: "src/content/artists"
     create: true
-    slug: "{{fields.slug}}"
+    slug: "{{name | slugify}}"
     identifier_field: "name"
     format: "frontmatter"
     sortable_fields: ["name", "sortOrder"]
     summary: "{{name}} — {{mediums}}"
     fields:
       - { label: "Name", name: "name", widget: "string", hint: "Full name of the artist" }
-      - { label: "URL Slug", name: "slug", widget: "string", hint: "Lowercase name with hyphens (e.g. wilma-kroese). Do not change after creation!" }
       - label: "Art Medium(s)"
         name: "mediums"
         widget: "list"

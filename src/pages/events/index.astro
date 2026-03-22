@@ -20,7 +20,7 @@ const past = await getPastEvents();
             {upcoming.map((event) => (
               <EventCard
                 title={event.data.title}
-                slug={event.id}
+                slug={event.id.replace(/\.md$/, '')}
                 startDate={event.data.startDate}
                 venueName={event.data.venueName}
                 featuredImage={event.data.featuredImage}
@@ -41,7 +41,7 @@ const past = await getPastEvents();
             {past.map((event) => (
               <EventCard
                 title={event.data.title}
-                slug={event.id}
+                slug={event.id.replace(/\.md$/, '')}
                 startDate={event.data.startDate}
                 venueName={event.data.venueName}
                 featuredImage={event.data.featuredImage}

@@ -6,7 +6,7 @@ import { formatDate } from '../../lib/content';
 export async function getStaticPaths() {
   const news = await getCollection('news');
   return news.map((item) => ({
-    params: { slug: item.id },
+    params: { slug: item.id.replace(/\.md$/, '') },
     props: { item },
   }));
 }

@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "skills": {
+    "sprint-execute": {
+      "source": "/home/ckroese/strongDM/skills-main",
+      "sourceType": "local",
+      "computedHash": "ced2cfc5afbb497968bfc5c17726d174bc74dfd8f39e14aeacc0f93b54a97cbc"
+    },
+    "sprint-plan": {
+      "source": "/home/ckroese/strongDM/skills-main",
+      "sourceType": "local",
+      "computedHash": "5c19155ca90d7da4ffe84d6a4c84a2cc695731c03dfcfb955ea08ea5cd3fa321"
+    }
+  }
+}

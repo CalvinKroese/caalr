@@ -16,7 +16,7 @@ const artists = await getActiveArtists();
           {artists.map((artist) => (
             <ArtistCard
               name={artist.data.name}
-              slug={artist.data.slug}
+              slug={artist.id.replace(/\.md$/, '')}
               mediums={artist.data.mediums}
               shortBio={artist.data.shortBio}
               featuredImage={artist.data.featuredImage}

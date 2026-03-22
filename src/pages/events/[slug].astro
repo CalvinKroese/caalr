@@ -6,7 +6,7 @@ import { formatDate, isUpcoming } from '../../lib/content';
 export async function getStaticPaths() {
   const events = await getCollection('events');
   return events.map((event) => ({
-    params: { slug: event.id },
+    params: { slug: event.id.replace(/\.md$/, '') },
     props: { event },
   }));
 }

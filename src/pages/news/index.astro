@@ -13,7 +13,7 @@ const news = await getNewsItems();
       {news.length > 0 ? (
         <div class="grid grid--3">
           {news.map((item) => (
-            <a href={`/news/${item.id}/`} class="card news-card">
+            <a href={`/news/${item.id.replace(/\.md$/, '')}/`} class="card news-card">
               {item.data.featuredImage && (
                 <img src={item.data.featuredImage} alt={item.data.title} class="card__image" loading="lazy" width="400" height="300" />
               )}
