@@ -1,0 +1,11 @@
+{
+  "members": [
+    { "name": "Carol Krah", "role": "President", "email": "CarolRKrah@gmail.com", "artistSlug": "" },
+    { "name": "Stacey Lipton", "role": "Vice President", "email": "", "artistSlug": "" },
+    { "name": "Susan Perry", "role": "Secretary", "email": "", "artistSlug": "" },
+    { "name": "Benise Jones", "role": "Treasurer", "email": "", "artistSlug": "" },
+    { "name": "Barby Comins", "role": "At Large", "email": "", "artistSlug": "" },
+    { "name": "Wilma Kroese", "role": "At Large", "email": "", "artistSlug": "wilma-kroese" },
+    { "name": "Elaine Vaughn", "role": "At Large", "email": "", "artistSlug": "elaine-vaughn" }
+  ]
+}

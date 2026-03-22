@@ -1,0 +1,20 @@
+{
+  "scheduleSummary": "Monthly meetings at Lakewood Ranch Town Hall, September through November and January through March. Board meets at 6:15 PM, networking at 6:30 PM, general meeting at 7:00 PM.",
+  "locationName": "Lakewood Ranch Town Hall",
+  "locationAddress": "8175 Lakewood Ranch Blvd, Lakewood Ranch, FL 34202",
+  "mapUrl": "https://maps.google.com/?q=8175+Lakewood+Ranch+Blvd+Lakewood+Ranch+FL+34202",
+  "boardTime": "6:15 PM",
+  "networkingTime": "6:30 PM",
+  "generalTime": "7:00 PM",
+  "dates": [
+    { "date": "2026-01-12T19:00:00.000Z", "type": "Board and Membership" },
+    { "date": "2026-02-09T19:00:00.000Z", "type": "Board and Membership" },
+    { "date": "2026-03-13T19:00:00.000Z", "type": "Setup for Spring Show" },
+    { "date": "2026-03-14T19:00:00.000Z", "type": "Spring Art Show" },
+    { "date": "2026-09-14T19:00:00.000Z", "type": "Board and Membership" },
+    { "date": "2026-10-19T19:00:00.000Z", "type": "Board and Membership" },
+    { "date": "2026-11-13T19:00:00.000Z", "type": "Setup for Fall Show" },
+    { "date": "2026-11-14T19:00:00.000Z", "type": "Fall Art Show" }
+  ],
+  "notes": "No meetings in April through August or December."
+}
