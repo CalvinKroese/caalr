@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { formatDate } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const news = await getCollection('news');
+  return news.map((item) => ({
+    params: { slug: item.id },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { Content } = await item.render();
+const { title, date, sourceName, sourceUrl, featuredImage } = item.data;
+---
+<BaseLayout title={title} description={`${title} — CAALR news`}>
+  <section class="section">
+    <div class="container" style="max-width: 800px">
+      <h1>{title}</h1>
+      <p class="text-muted">{formatDate(date)}</p>
+      {sourceName && (
+        <p class="text-muted">
+          Source: {sourceUrl ? <a href={sourceUrl} target="_blank" rel="noopener noreferrer">{sourceName}</a> : sourceName}
+        </p>
+      )}
+
+      {featuredImage && (
+        <img src={featuredImage} alt={title} style="width: 100%; border-radius: var(--radius-card); margin: var(--space-md) 0;" width="800" height="400" />
+      )}
+
+      <div class="prose" style="margin-top: var(--space-md)">
+        <Content />
+      </div>
+
+      <div style="margin-top: var(--space-lg)">
+        <a href="/news/" class="btn btn--primary">&larr; All News</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

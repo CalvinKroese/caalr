@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import ArtistCard from '../../components/ArtistCard.astro';
+import { getActiveArtists } from '../../lib/content';
+
+const artists = await getActiveArtists();
+---
+<BaseLayout title="Artists" description="Meet the artists of the Creative Arts Association of Lakewood Ranch.">
+  <Hero title="Our Artists" subtitle="Meet the creative talent behind CAALR" compact />
+
+  <section class="section">
+    <div class="container">
+      {artists.length > 0 ? (
+        <div class="grid grid--3">
+          {artists.map((artist) => (
+            <ArtistCard
+              name={artist.data.name}
+              slug={artist.data.slug}
+              mediums={artist.data.mediums}
+              shortBio={artist.data.shortBio}
+              featuredImage={artist.data.featuredImage}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="text-center text-muted">Artist profiles coming soon.</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>

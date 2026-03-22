@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import { getNewsItems, formatDate } from '../../lib/content';
+
+const news = await getNewsItems();
+---
+<BaseLayout title="News & Highlights" description="News, awards, and media coverage featuring CAALR artists.">
+  <Hero title="News & Highlights" subtitle="Awards, features, and accomplishments by our members" compact />
+
+  <section class="section">
+    <div class="container">
+      {news.length > 0 ? (
+        <div class="grid grid--3">
+          {news.map((item) => (
+            <a href={`/news/${item.id}/`} class="card news-card">
+              {item.data.featuredImage && (
+                <img src={item.data.featuredImage} alt={item.data.title} class="card__image" loading="lazy" width="400" height="300" />
+              )}
+              <div class="card__body">
+                <h3 class="card__title">{item.data.title}</h3>
+                <p class="card__meta">{formatDate(item.data.date)}</p>
+                {item.data.sourceName && <p class="card__meta">Source: {item.data.sourceName}</p>}
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p class="text-center text-muted">No news items yet.</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .news-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+</style>

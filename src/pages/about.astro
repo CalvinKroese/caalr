@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import { readFileSync } from 'node:fs';
+
+const about = (() => {
+  try {
+    const raw = readFileSync('src/content/pages/about.md', 'utf-8');
+    const match = raw.match(/^---\n([\s\S]*?)\n---/);
+    if (!match) return {};
+    // Simple YAML-like parsing for the fields we need
+    const sections = match[1].split(/\n(?=\w)/);
+    const result: Record<string, any> = {};
+    for (const section of sections) {
+      const lines = section.split('\n');
+      const [key, ...rest] = lines[0].split(':');
+      if (key?.trim() === 'resources') {
+        // Parse resources list
+        const resources: {label: string; url: string}[] = [];
+        for (let i = 1; i < lines.length; i++) {
+          const labelMatch = lines[i]?.match(/label:\s*"(.+?)"/);
+          const urlMatch = lines[i+1]?.match(/url:\s*"(.+?)"/);
+          if (labelMatch && urlMatch) {
+            resources.push({ label: labelMatch[1], url: urlMatch[1] });
+            i++;
+          }
+        }
+        result.resources = resources;
+      } else if (rest.length && rest.join(':').trim().startsWith('|')) {
+        // Multiline value
+        result[key.trim()] = lines.slice(1).map(l => l.replace(/^\s{2}/, '')).join('\n').trim();
+      } else if (rest.length) {
+        result[key.trim()] = rest.join(':').trim().replace(/^["']|["']$/g, '');
+      }
+    }
+    return result;
+  } catch { return {}; }
+})();
+
+const board = JSON.parse(readFileSync('src/content/settings/board.json', 'utf-8'));
+const meetings = JSON.parse(readFileSync('src/content/settings/meetings.json', 'utf-8'));
+---
+<BaseLayout title="About" description="Learn about the Creative Arts Association of Lakewood Ranch — our mission, board, meetings, and membership.">
+  <Hero title="About CAALR" compact />
+
+  <section class="section">
+    <div class="container about-grid">
+      <div class="about-main prose">
+        <h2>{about.missionTitle || 'Our Mission'}</h2>
+        {about.missionBody?.split('\n\n').map((p: string) => <p>{p}</p>)}
+
+        <h2>Membership</h2>
+        {about.membershipBody?.split('\n\n').map((p: string) => {
+          if (p.startsWith('**')) {
+            const match = p.match(/^\*\*(.+?)\*\*\s*(.*)/);
+            return match ? <p><strong>{match[1]}</strong> {match[2]}</p> : <p>{p}</p>;
+          }
+          return <p>{p}</p>;
+        })}
+      </div>
+
+      <aside class="about-sidebar">
+        <div class="about-card">
+          <h3>Board of Directors</h3>
+          <ul class="board-list">
+            {board.members.map((m: {name: string; role: string}) => (
+              <li class="board-list__item">
+                <strong>{m.name}</strong>
+                <span class="text-muted">{m.role}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="about-card">
+          <h3>Meeting Schedule</h3>
+          <p>{meetings.scheduleSummary}</p>
+          <p class="text-muted" style="margin-top: var(--space-xs)">
+            <strong>Location:</strong> {meetings.locationName}
+          </p>
+          <p class="text-muted">{meetings.locationAddress}</p>
+          {meetings.mapUrl && (
+            <a href={meetings.mapUrl} target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: var(--space-xs)">
+              View on Google Maps &rarr;
+            </a>
+          )}
+          <div style="margin-top: var(--space-sm)">
+            <p class="text-muted"><strong>Board meeting:</strong> {meetings.boardTime}</p>
+            <p class="text-muted"><strong>Networking:</strong> {meetings.networkingTime}</p>
+            <p class="text-muted"><strong>General meeting:</strong> {meetings.generalTime}</p>
+          </div>
+          {meetings.notes && <p class="text-muted" style="margin-top: var(--space-xs); font-style: italic">{meetings.notes}</p>}
+        </div>
+
+        {about.resources && about.resources.length > 0 && (
+          <div class="about-card">
+            <h3>Local Resources</h3>
+            <ul>
+              {about.resources.map((r: {label: string; url: string}) => (
+                <li style="margin-bottom: var(--space-xs)">
+                  <a href={r.url} target="_blank" rel="noopener noreferrer">{r.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  @media (min-width: 768px) {
+    .about-grid {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  .about-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .about-card h3 {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-xs);
+    border-bottom: 2px solid var(--color-secondary-light);
+  }
+
+  .board-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .board-list__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-xs) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .board-list__item:last-child {
+    border-bottom: none;
+  }
+</style>

@@ -1,0 +1,44 @@
+---
+interface Props {
+  name: string;
+  slug: string;
+  mediums: string[];
+  shortBio: string;
+  featuredImage: string;
+}
+
+const { name, slug, mediums, shortBio, featuredImage } = Astro.props;
+---
+
+<a href={`/artists/${slug}/`} class="artist-card card">
+  <img
+    src={featuredImage}
+    alt={`Photo of ${name}`}
+    class="card__image"
+    loading="lazy"
+    width="400"
+    height="300"
+  />
+  <div class="card__body">
+    <h3 class="card__title">{name}</h3>
+    <div class="artist-card__mediums">
+      {mediums.map((m) => <span class="badge">{m}</span>)}
+    </div>
+    <p class="card__meta">{shortBio}</p>
+  </div>
+</a>
+
+<style>
+  .artist-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .artist-card__mediums {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-bottom: var(--space-xs);
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+import { formatDate, isUpcoming } from '../lib/content';
+
+interface Props {
+  title: string;
+  slug: string;
+  startDate: Date;
+  venueName: string;
+  featuredImage?: string;
+}
+
+const { title, slug, startDate, venueName, featuredImage } = Astro.props;
+const upcoming = isUpcoming(startDate);
+---
+
+<a href={`/events/${slug}/`} class="event-card card">
+  {featuredImage && (
+    <img
+      src={featuredImage}
+      alt={title}
+      class="card__image"
+      loading="lazy"
+      width="400"
+      height="300"
+    />
+  )}
+  <div class="card__body">
+    <div class="event-card__status">
+      <span class:list={['badge', { 'badge--upcoming': upcoming }]}>
+        {upcoming ? 'Upcoming' : 'Past'}
+      </span>
+    </div>
+    <h3 class="card__title">{title}</h3>
+    <p class="card__meta">{formatDate(startDate)}</p>
+    <p class="card__meta">{venueName}</p>
+  </div>
+</a>
+
+<style>
+  .event-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .event-card__status {
+    margin-bottom: var(--space-xs);
+  }
+
+  .badge--upcoming {
+    background-color: var(--color-secondary-light);
+    color: var(--color-secondary);
+  }
+</style>

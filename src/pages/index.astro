@@ -1,16 +1,110 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ArtistCard from '../components/ArtistCard.astro';
+import EventCard from '../components/EventCard.astro';
+import { getActiveArtists, getUpcomingEvents, getFeaturedGallery } from '../lib/content';
+import { readFileSync } from 'node:fs';
+
+const home = (() => {
+  try {
+    const raw = readFileSync('src/content/pages/home.md', 'utf-8');
+    const match = raw.match(/^---\n([\s\S]*?)\n---/);
+    if (!match) return { heroTitle: 'CAALR', heroText: '', heroImage: '', introText: '' };
+    const fm: Record<string, string> = {};
+    match[1].split('\n').forEach(line => {
+      const [key, ...rest] = line.split(':');
+      if (key && rest.length) fm[key.trim()] = rest.join(':').trim().replace(/^["']|["']$/g, '');
+    });
+    return fm;
+  } catch { return { heroTitle: 'CAALR', heroText: '', heroImage: '', introText: '' }; }
+})();
+
+const artists = await getActiveArtists();
+const featuredArtists = artists.slice(0, 4);
+const upcomingEvents = await getUpcomingEvents();
+const featuredGallery = await getFeaturedGallery(6);
 ---
 <BaseLayout title="Home">
   <Hero
-    title="Creative Arts Association of Lakewood Ranch"
-    subtitle="A community of visual artists inspiring creativity since 2001"
+    title={String(home.heroTitle || 'Creative Arts Association of Lakewood Ranch')}
+    subtitle={String(home.heroText || 'A community of visual artists inspiring creativity since 2001')}
+    image={String(home.heroImage || '')}
     cta={{ label: 'Meet Our Artists', href: '/artists/' }}
   />
-  <section class="section">
-    <div class="container">
-      <p>Full site coming soon. Content is being migrated.</p>
-    </div>
-  </section>
+
+  {upcomingEvents.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <SectionHeading title="Upcoming Shows" subtitle="Join us at our next event" />
+        <div class="grid grid--3">
+          {upcomingEvents.slice(0, 3).map((event) => (
+            <EventCard
+              title={event.data.title}
+              slug={event.id}
+              startDate={event.data.startDate}
+              venueName={event.data.venueName}
+              featuredImage={event.data.featuredImage}
+            />
+          ))}
+        </div>
+        <div class="text-center" style="margin-top: var(--space-md)">
+          <a href="/events/" class="btn btn--primary">All Events</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {featuredArtists.length > 0 && (
+    <section class="section section--alt">
+      <div class="container">
+        <SectionHeading title="Our Artists" subtitle="Meet the creative talent behind CAALR" />
+        <div class="grid grid--4">
+          {featuredArtists.map((artist) => (
+            <ArtistCard
+              name={artist.data.name}
+              slug={artist.data.slug}
+              mediums={artist.data.mediums}
+              shortBio={artist.data.shortBio}
+              featuredImage={artist.data.featuredImage}
+            />
+          ))}
+        </div>
+        <div class="text-center" style="margin-top: var(--space-md)">
+          <a href="/artists/" class="btn btn--primary">All Artists</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {featuredGallery.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <SectionHeading title="Gallery" subtitle="Recent works by our members" />
+        <div class="grid grid--3">
+          {featuredGallery.map((item) => (
+            <div class="card">
+              <img
+                src={item.data.image}
+                alt={item.data.alt}
+                class="card__image"
+                loading="lazy"
+                width="400"
+                height="300"
+              />
+              {item.data.caption && (
+                <div class="card__body">
+                  <p class="card__meta">{item.data.caption}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+        <div class="text-center" style="margin-top: var(--space-md)">
+          <a href="/gallery/" class="btn btn--primary">View Full Gallery</a>
+        </div>
+      </div>
+    </section>
+  )}
 </BaseLayout>

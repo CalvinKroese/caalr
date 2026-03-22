@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GalleryGrid from '../../components/GalleryGrid.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const artists = await getCollection('artists');
+  return artists.map((artist) => ({
+    params: { slug: artist.data.slug },
+    props: { artist },
+  }));
+}
+
+const { artist } = Astro.props;
+const { Content } = await artist.render();
+const { name, mediums, shortBio, email, website, instagram, facebook, featuredImage, galleryImages, isBoardMember, boardRole } = artist.data;
+
+const galleryForLightbox = galleryImages.map((img, i) => ({
+  title: img.caption || `${name} artwork ${i + 1}`,
+  image: img.src,
+  alt: img.caption || `Artwork by ${name}`,
+  caption: img.caption,
+}));
+---
+<BaseLayout title={name} description={`${shortBio} — CAALR artist member.`}>
+  <section class="section">
+    <div class="container artist-profile">
+      <div class="artist-profile__header">
+        <img
+          src={featuredImage}
+          alt={`Photo of ${name}`}
+          class="artist-profile__photo"
+          width="300"
+          height="300"
+        />
+        <div class="artist-profile__info">
+          <h1>{name}</h1>
+          <div class="artist-profile__mediums">
+            {mediums.map((m) => <span class="badge">{m}</span>)}
+          </div>
+          {isBoardMember && boardRole && (
+            <p class="text-muted">CAALR Board — {boardRole}</p>
+          )}
+          <div class="artist-profile__contact">
+            {email && <a href={`mailto:${email}`}>{email}</a>}
+            {website && <a href={website} target="_blank" rel="noopener noreferrer">Website</a>}
+            {instagram && <a href={instagram} target="_blank" rel="noopener noreferrer">Instagram</a>}
+            {facebook && <a href={facebook} target="_blank" rel="noopener noreferrer">Facebook</a>}
+          </div>
+        </div>
+      </div>
+
+      <div class="artist-profile__bio prose">
+        <Content />
+      </div>
+
+      {galleryForLightbox.length > 0 && (
+        <div class="artist-profile__gallery">
+          <h2>Artwork</h2>
+          <GalleryGrid images={galleryForLightbox} />
+        </div>
+      )}
+
+      <div style="margin-top: var(--space-lg)">
+        <a href="/artists/" class="btn btn--primary">&larr; All Artists</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .artist-profile__header {
+    display: flex;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    align-items: flex-start;
+  }
+
+  .artist-profile__photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+    flex-shrink: 0;
+  }
+
+  .artist-profile__mediums {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .artist-profile__contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+  }
+
+  .artist-profile__gallery {
+    margin-top: var(--space-xl);
+  }
+
+  .artist-profile__gallery h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  @media (max-width: 600px) {
+    .artist-profile__header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .artist-profile__mediums {
+      justify-content: center;
+    }
+
+    .artist-profile__contact {
+      justify-content: center;
+    }
+  }
+</style>

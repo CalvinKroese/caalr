@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import EventCard from '../../components/EventCard.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { getUpcomingEvents, getPastEvents } from '../../lib/content';
+
+const upcoming = await getUpcomingEvents();
+const past = await getPastEvents();
+---
+<BaseLayout title="Shows & Events" description="Upcoming and past art shows and events by the Creative Arts Association of Lakewood Ranch.">
+  <Hero title="Shows & Events" subtitle="Art shows, exhibitions, and community events" compact />
+
+  <section class="section">
+    <div class="container">
+      {upcoming.length > 0 ? (
+        <>
+          <SectionHeading title="Upcoming Events" />
+          <div class="grid grid--3">
+            {upcoming.map((event) => (
+              <EventCard
+                title={event.data.title}
+                slug={event.id}
+                startDate={event.data.startDate}
+                venueName={event.data.venueName}
+                featuredImage={event.data.featuredImage}
+              />
+            ))}
+          </div>
+        </>
+      ) : (
+        <div class="text-center" style="margin-bottom: var(--space-xl)">
+          <p class="text-muted">No upcoming events at this time. Check back soon!</p>
+        </div>
+      )}
+
+      {past.length > 0 && (
+        <div style="margin-top: var(--space-xl)">
+          <SectionHeading title="Past Events" />
+          <div class="grid grid--3">
+            {past.map((event) => (
+              <EventCard
+                title={event.data.title}
+                slug={event.id}
+                startDate={event.data.startDate}
+                venueName={event.data.venueName}
+                featuredImage={event.data.featuredImage}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
