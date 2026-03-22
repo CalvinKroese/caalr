@@ -1,0 +1,160 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Artists', href: '/artists/' },
+  { label: 'Gallery', href: '/gallery/' },
+  { label: 'Events', href: '/events/' },
+  { label: 'About', href: '/about/' },
+  { label: 'News', href: '/news/' },
+];
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__logo" aria-label="CAALR Home">
+      <span class="site-header__logo-text">CAALR</span>
+    </a>
+
+    <button
+      class="site-header__toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+
+    <nav id="main-nav" class="site-nav" aria-label="Main navigation">
+      <ul class="site-nav__list">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={['site-nav__link', { 'site-nav__link--active': currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href)) }]}
+              aria-current={currentPath === item.href ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background-color: var(--color-primary-dark);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--space-sm);
+  }
+
+  .site-header__logo {
+    text-decoration: none;
+    color: white;
+  }
+
+  .site-header__logo-text {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-secondary-light);
+  }
+
+  .site-header__toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: var(--space-xs);
+  }
+
+  .site-nav__list {
+    display: flex;
+    list-style: none;
+    gap: var(--space-xs);
+  }
+
+  .site-nav__link {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    border-radius: 4px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .site-nav__link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  .site-nav__link--active {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--color-secondary-light);
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .site-header__toggle {
+      display: block;
+    }
+
+    .site-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--color-primary-dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .site-nav.is-open {
+      display: block;
+    }
+
+    .site-nav__list {
+      flex-direction: column;
+      padding: var(--space-sm);
+    }
+
+    .site-nav__link {
+      padding: 0.75rem 1rem;
+      font-size: var(--font-size-lg);
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.site-header__toggle');
+  const nav = document.querySelector('.site-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+  }
+</script>

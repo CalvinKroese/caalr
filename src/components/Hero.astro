@@ -1,0 +1,85 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  image?: string;
+  cta?: {
+    label: string;
+    href: string;
+  };
+  compact?: boolean;
+}
+
+const { title, subtitle, image, cta, compact = false } = Astro.props;
+---
+
+<section class:list={['hero', { 'hero--compact': compact, 'hero--with-image': !!image }]}>
+  {image && <div class="hero__bg" style={`background-image: url('${image}')`}></div>}
+  <div class="container hero__content">
+    <h1 class="hero__title">{title}</h1>
+    {subtitle && <p class="hero__subtitle">{subtitle}</p>}
+    {cta && (
+      <a href={cta.href} class="btn btn--secondary hero__cta">{cta.label}</a>
+    )}
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    background-color: var(--color-primary-dark);
+    color: white;
+    padding-block: var(--space-xl);
+    overflow: hidden;
+  }
+
+  .hero--compact {
+    padding-block: var(--space-lg);
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  .hero__title {
+    font-size: var(--font-size-4xl);
+    color: white;
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero--compact .hero__title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .hero__subtitle {
+    font-size: var(--font-size-lg);
+    opacity: 0.9;
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+  }
+
+  .hero__cta {
+    margin-top: var(--space-sm);
+  }
+
+  @media (max-width: 768px) {
+    .hero__title {
+      font-size: var(--font-size-2xl);
+    }
+    .hero--compact .hero__title {
+      font-size: var(--font-size-xl);
+    }
+  }
+</style>

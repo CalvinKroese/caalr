@@ -1,0 +1,45 @@
+:root {
+  /* Colors — modernized green/gold palette */
+  --color-primary: #1a6847;
+  --color-primary-light: #2d8f65;
+  --color-primary-dark: #0f3d2a;
+  --color-secondary: #b8960c;
+  --color-secondary-light: #f5ecc0;
+  --color-bg: #fafdf7;
+  --color-bg-alt: #eef7e8;
+  --color-surface: #ffffff;
+  --color-text: #1a2e1a;
+  --color-text-muted: #4a6b4a;
+  --color-border: #c8dcc0;
+  --color-focus: #b8960c;
+
+  /* Typography */
+  --font-heading: 'Merriweather', Georgia, serif;
+  --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-base: 1.125rem; /* 18px */
+  --font-size-sm: 0.9375rem;  /* 15px — only for metadata, never body */
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 1.875rem;
+  --font-size-3xl: 2.25rem;
+  --font-size-4xl: 2.75rem;
+  --line-height-base: 1.7;
+  --line-height-heading: 1.3;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-section: clamp(3rem, 8vw, 6rem);
+
+  /* Layout */
+  --max-width: 1200px;
+  --content-padding: clamp(1rem, 4vw, 2rem);
+
+  /* Cards */
+  --radius-card: 8px;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.12);
+}

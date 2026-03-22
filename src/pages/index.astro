@@ -1,14 +1,16 @@
 ---
-// Placeholder — will be replaced in Phase 4
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
 ---
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAALR — Creative Arts Association of Lakewood Ranch</title>
-</head>
-<body>
-  <h1>Creative Arts Association of Lakewood Ranch</h1>
-  <p>Site under construction.</p>
-</body>
-</html>
+<BaseLayout title="Home">
+  <Hero
+    title="Creative Arts Association of Lakewood Ranch"
+    subtitle="A community of visual artists inspiring creativity since 2001"
+    cta={{ label: 'Meet Our Artists', href: '/artists/' }}
+  />
+  <section class="section">
+    <div class="container">
+      <p>Full site coming soon. Content is being migrated.</p>
+    </div>
+  </section>
+</BaseLayout>
