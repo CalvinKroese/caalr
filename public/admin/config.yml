@@ -1,0 +1,174 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "artists"
+    label: "Artists"
+    folder: "src/content/artists"
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: "name"
+    format: "frontmatter"
+    sortable_fields: ["name", "sortOrder"]
+    summary: "{{name}} — {{mediums}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string", hint: "Full name of the artist" }
+      - { label: "URL Slug", name: "slug", widget: "string", hint: "Lowercase name with hyphens (e.g. wilma-kroese). Do not change after creation!" }
+      - label: "Art Medium(s)"
+        name: "mediums"
+        widget: "list"
+        hint: "Add each medium separately (e.g. Pottery, Watercolor)"
+        field: { label: "Medium", name: "medium", widget: "string" }
+      - { label: "Short Bio (shown on card)", name: "shortBio", widget: "text", hint: "One or two sentences shown on the Artists page" }
+      - { label: "Email", name: "email", widget: "string", required: false }
+      - { label: "Website", name: "website", widget: "string", required: false }
+      - { label: "Instagram", name: "instagram", widget: "string", required: false }
+      - { label: "Facebook", name: "facebook", widget: "string", required: false }
+      - { label: "Profile Photo", name: "featuredImage", widget: "image" }
+      - label: "Artwork Photos"
+        name: "galleryImages"
+        widget: "list"
+        hint: "Add photos of this artist's work"
+        fields:
+          - { label: "Image", name: "src", widget: "image" }
+          - { label: "Caption", name: "caption", widget: "string", required: false }
+      - { label: "Board Member?", name: "isBoardMember", widget: "boolean", default: false }
+      - { label: "Board Role", name: "boardRole", widget: "string", required: false, hint: "e.g. President, Vice President, At Large" }
+      - { label: "Display Order", name: "sortOrder", widget: "number", value_type: "int", default: 100, hint: "Lower numbers appear first on the Artists page" }
+      - { label: "Status", name: "status", widget: "select", options: ["active", "alumni"], default: "active", hint: "Alumni are kept in the system but hidden from the website" }
+
+  - name: "events"
+    label: "Shows & Events"
+    folder: "src/content/events"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    sortable_fields: ["title", "startDate"]
+    summary: "{{title}} — {{startDate}}"
+    fields:
+      - { label: "Show / Event Name", name: "title", widget: "string" }
+      - { label: "Start Date", name: "startDate", widget: "datetime" }
+      - { label: "End Date (if multi-day)", name: "endDate", widget: "datetime", required: false }
+      - { label: "Venue Name", name: "venueName", widget: "string" }
+      - { label: "Street Address", name: "venueAddress", widget: "string", required: false, hint: "Used to create a Google Maps link for visitors" }
+      - { label: "Flyer or Event Photo", name: "featuredImage", widget: "image", required: false }
+      - label: "Event Photos"
+        name: "galleryImages"
+        widget: "list"
+        required: false
+        hint: "Add photos from the event (can be added after the event)"
+        field: { label: "Image", name: "image", widget: "image" }
+      - { label: "Feature on Homepage?", name: "featured", widget: "boolean", default: false }
+      - { label: "Description", name: "body", widget: "markdown" }
+
+  - name: "gallery"
+    label: "Gallery"
+    folder: "src/content/gallery"
+    create: true
+    format: "json"
+    sortable_fields: ["title", "year"]
+    summary: "{{title}} ({{year}})"
+    fields:
+      - { label: "Image Title", name: "title", widget: "string", hint: "A short title for this artwork" }
+      - { label: "Photo", name: "image", widget: "image" }
+      - { label: "Description for Screen Readers", name: "alt", widget: "string", hint: "Describe what is shown in the photo (for visually impaired visitors)" }
+      - { label: "Caption (optional)", name: "caption", widget: "string", required: false }
+      - { label: "Artist Name (optional)", name: "artistSlug", widget: "string", required: false, hint: "Enter the artist's URL name (e.g. wilma-kroese)" }
+      - { label: "Medium (optional)", name: "medium", widget: "string", required: false, hint: "e.g. Pottery, Watercolor" }
+      - { label: "Year (optional)", name: "year", widget: "number", required: false }
+      - { label: "Feature on Homepage?", name: "featured", widget: "boolean", default: false }
+
+  - name: "news"
+    label: "News & Highlights"
+    folder: "src/content/news"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    sortable_fields: ["title", "date"]
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Headline", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Publication or Source", name: "sourceName", widget: "string", required: false, hint: "e.g. Lakewood Ranch Herald" }
+      - { label: "Link to Article", name: "sourceUrl", widget: "string", required: false }
+      - { label: "Photo", name: "featuredImage", widget: "image", required: false }
+      - { label: "Featured?", name: "featured", widget: "boolean", default: false }
+      - { label: "Story", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "src/content/pages/home.md"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Text", name: "heroText", widget: "text" }
+          - { label: "Hero Image", name: "heroImage", widget: "image" }
+          - { label: "Welcome Text", name: "introText", widget: "markdown" }
+      - label: "About Page"
+        name: "about"
+        file: "src/content/pages/about.md"
+        fields:
+          - { label: "Mission Title", name: "missionTitle", widget: "string" }
+          - { label: "Mission Text", name: "missionBody", widget: "markdown" }
+          - { label: "Membership Info", name: "membershipBody", widget: "markdown" }
+          - label: "Resource Links"
+            name: "resources"
+            widget: "list"
+            hint: "Links to local art centers and resources"
+            fields:
+              - { label: "Name", name: "label", widget: "string" }
+              - { label: "Website URL", name: "url", widget: "string" }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General"
+        name: "site"
+        file: "src/content/settings/site.json"
+        fields:
+          - { label: "Site Name", name: "siteName", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Contact Email", name: "contactEmail", widget: "string" }
+          - { label: "Footer Text", name: "footerText", widget: "text" }
+      - label: "Board of Directors"
+        name: "board"
+        file: "src/content/settings/board.json"
+        fields:
+          - label: "Board Members"
+            name: "members"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string", hint: "e.g. President, Vice President, At Large" }
+              - { label: "Email (optional)", name: "email", widget: "string", required: false }
+              - { label: "Artist Page (optional)", name: "artistSlug", widget: "string", required: false, hint: "If they are also an artist member, enter their URL name" }
+      - label: "Meeting Schedule"
+        name: "meetings"
+        file: "src/content/settings/meetings.json"
+        fields:
+          - { label: "Schedule Summary", name: "scheduleSummary", widget: "text", hint: "e.g. Second Monday of each month, September through May" }
+          - { label: "Location Name", name: "locationName", widget: "string" }
+          - { label: "Location Address", name: "locationAddress", widget: "string" }
+          - { label: "Google Maps Link", name: "mapUrl", widget: "string", required: false }
+          - { label: "Board Meeting Time", name: "boardTime", widget: "string" }
+          - { label: "Networking Time", name: "networkingTime", widget: "string" }
+          - { label: "General Meeting Time", name: "generalTime", widget: "string" }
+          - label: "Meeting Dates"
+            name: "dates"
+            widget: "list"
+            fields:
+              - { label: "Date", name: "date", widget: "datetime" }
+              - { label: "Type", name: "type", widget: "string", hint: "e.g. Board and Membership, Spring Show Setup" }
+          - { label: "Notes", name: "notes", widget: "text", required: false, hint: "e.g. No meetings in July and August" }
+      - label: "Social Media"
+        name: "social"
+        file: "src/content/settings/social.json"
+        fields:
+          - { label: "Facebook URL", name: "facebookUrl", widget: "string", required: false }
+          - { label: "Instagram URL", name: "instagramUrl", widget: "string", required: false }
