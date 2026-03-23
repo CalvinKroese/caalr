@@ -2,19 +2,25 @@
 const currentPath = Astro.url.pathname;
 
 const navItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Artists', href: '/artists/' },
-  { label: 'Gallery', href: '/gallery/' },
-  { label: 'Events', href: '/events/' },
-  { label: 'About', href: '/about/' },
-  { label: 'News', href: '/news/' },
+  { label: 'home', href: '/' },
+  { label: 'artists', href: '/artists/' },
+  { label: 'gallery', href: '/gallery/' },
+  { label: 'events', href: '/events/' },
+  { label: 'about', href: '/about/' },
+  { label: 'news', href: '/news/' },
 ];
 ---
 
 <header class="site-header">
   <div class="container site-header__inner">
     <a href="/" class="site-header__logo" aria-label="CAALR Home">
-      <span class="site-header__logo-text">CAALR</span>
+      <img
+        src="/uploads/logo/caalr-logo-upscaled.png"
+        alt="Creative Arts Association logo"
+        class="site-header__logo-img"
+        width="120"
+        height="80"
+      />
     </a>
 
     <button
@@ -23,7 +29,7 @@ const navItems = [
       aria-expanded="false"
       aria-controls="main-nav"
     >
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
         <line x1="3" y1="6" x2="21" y2="6" />
         <line x1="3" y1="12" x2="21" y2="12" />
         <line x1="3" y1="18" x2="21" y2="18" />
@@ -50,32 +56,32 @@ const navItems = [
 
 <style>
   .site-header {
-    background-color: var(--color-primary-dark);
+    background-color: var(--color-teal-deeper);
     color: white;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 12px rgba(5, 77, 85, 0.2);
   }
 
   .site-header__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: var(--space-sm);
+    padding-block: var(--space-xs);
+    gap: var(--space-md);
   }
 
   .site-header__logo {
     text-decoration: none;
-    color: white;
+    flex-shrink: 0;
   }
 
-  .site-header__logo-text {
-    font-family: var(--font-heading);
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--color-secondary-light);
+  .site-header__logo-img {
+    height: 55px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1); /* Make logo white on dark bg */
   }
 
   .site-header__toggle {
@@ -90,18 +96,22 @@ const navItems = [
   .site-nav__list {
     display: flex;
     list-style: none;
-    gap: var(--space-xs);
+    gap: 0.25rem;
+    align-items: center;
   }
 
   .site-nav__link {
     display: block;
-    padding: 0.5rem 0.75rem;
-    color: rgba(255, 255, 255, 0.85);
+    padding: 0.5rem 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
+    font-family: var(--font-body);
     font-weight: 600;
     font-size: var(--font-size-base);
-    border-radius: 4px;
+    border-radius: var(--radius-pill);
     transition: background-color 0.15s ease, color 0.15s ease;
+    text-transform: lowercase;
+    letter-spacing: 0.01em;
   }
 
   .site-nav__link:hover {
@@ -111,7 +121,7 @@ const navItems = [
 
   .site-nav__link--active {
     background-color: rgba(255, 255, 255, 0.15);
-    color: var(--color-secondary-light);
+    color: var(--color-gold-light);
   }
 
   /* Mobile */
@@ -126,9 +136,9 @@ const navItems = [
       top: 100%;
       left: 0;
       right: 0;
-      background-color: var(--color-primary-dark);
+      background-color: var(--color-teal-deeper);
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 24px rgba(5, 77, 85, 0.3);
     }
 
     .site-nav.is-open {
@@ -141,8 +151,10 @@ const navItems = [
     }
 
     .site-nav__link {
-      padding: 0.75rem 1rem;
+      padding: 0.875rem 1.25rem;
       font-size: var(--font-size-lg);
+      width: 100%;
+      text-align: center;
     }
   }
 </style>
