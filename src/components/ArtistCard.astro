@@ -5,20 +5,26 @@ interface Props {
   mediums: string[];
   shortBio: string;
   featuredImage: string;
+  photoIsTemp?: boolean;
 }
 
-const { name, slug, mediums, shortBio, featuredImage } = Astro.props;
+const { name, slug, mediums, shortBio, featuredImage, photoIsTemp = false } = Astro.props;
 ---
 
 <a href={`/artists/${slug}/`} class="artist-card card">
-  <img
-    src={featuredImage}
-    alt={`Photo of ${name}`}
-    class="card__image"
-    loading="lazy"
-    width="400"
-    height="300"
-  />
+  <div class="artist-card__image-wrap">
+    <img
+      src={featuredImage}
+      alt={`Photo of ${name}`}
+      class="card__image"
+      loading="lazy"
+      width="400"
+      height="300"
+    />
+    {photoIsTemp && (
+      <span class="artist-card__temp-badge">Photo Coming Soon</span>
+    )}
+  </div>
   <div class="card__body">
     <h3 class="card__title">{name}</h3>
     <div class="artist-card__mediums">
@@ -35,12 +41,32 @@ const { name, slug, mediums, shortBio, featuredImage } = Astro.props;
     color: inherit;
   }
 
+  .artist-card__image-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+  }
+
   .artist-card .card__image {
     transition: transform 0.3s ease;
   }
 
   .artist-card:hover .card__image {
     transform: scale(1.05);
+  }
+
+  .artist-card__temp-badge {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    text-align: center;
+    font-size: 0.75rem;
+    font-style: italic;
+    padding: 0.35rem 0.5rem;
+    letter-spacing: 0.03em;
   }
 
   .artist-card__mediums {

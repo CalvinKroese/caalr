@@ -7,7 +7,8 @@ email: "barbedwiredesigns@yahoo.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/placeholder.svg"
+featuredImage: "/uploads/people/artist-004.jpg"
+photoIsTemp: true
 galleryImages: []
 isBoardMember: true
 boardRole: "At Large"

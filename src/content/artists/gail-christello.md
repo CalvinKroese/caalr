@@ -7,7 +7,8 @@ email: "gailgcristello@gmail.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/placeholder.svg"
+featuredImage: "/uploads/people/show-006.jpg"
+photoIsTemp: true
 galleryImages: []
 isBoardMember: false
 boardRole: ""

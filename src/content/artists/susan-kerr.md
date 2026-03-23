@@ -7,7 +7,8 @@ email: "kerrs757@gmail.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/placeholder.svg"
+featuredImage: "/uploads/people/show-011.jpg"
+photoIsTemp: true
 galleryImages: []
 isBoardMember: false
 boardRole: ""

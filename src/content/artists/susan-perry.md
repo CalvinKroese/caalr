@@ -7,7 +7,8 @@ email: "perrysfl150@gmail.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/placeholder.svg"
+featuredImage: "/uploads/people/artist-002.jpg"
+photoIsTemp: true
 galleryImages: []
 isBoardMember: true
 boardRole: "Secretary"

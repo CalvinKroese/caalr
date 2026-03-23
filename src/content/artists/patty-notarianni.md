@@ -7,7 +7,8 @@ email: "patty50@yahoo.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/placeholder.svg"
+featuredImage: "/uploads/people/home-004.jpg"
+photoIsTemp: true
 galleryImages: []
 isBoardMember: false
 boardRole: ""

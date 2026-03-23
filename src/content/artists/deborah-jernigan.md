@@ -7,7 +7,8 @@ email: "deborahjsdesigns@yahoo.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/placeholder.svg"
+featuredImage: "/uploads/people/show-009.jpg"
+photoIsTemp: true
 galleryImages: []
 isBoardMember: false
 boardRole: ""

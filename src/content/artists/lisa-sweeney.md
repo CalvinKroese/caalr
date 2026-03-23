@@ -7,7 +7,8 @@ email: "edlisa211@gmail.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/placeholder.svg"
+featuredImage: "/uploads/people/about-001.jpg"
+photoIsTemp: true
 galleryImages: []
 isBoardMember: false
 boardRole: ""

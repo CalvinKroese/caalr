@@ -4,7 +4,7 @@ startDate: 2013-04-01
 endDate: 2013-04-30
 venueName: "Art Center Manatee"
 venueAddress: "209 9th St W, Bradenton, FL 34205"
-featuredImage: ""
+featuredImage: "/uploads/people/show-006.jpg"
 galleryImages: []
 featured: false
 ---

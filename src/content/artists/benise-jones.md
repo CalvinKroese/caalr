@@ -7,7 +7,8 @@ email: "JMB2015@verizon.net"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/placeholder.svg"
+featuredImage: "/uploads/people/artist-003.jpg"
+photoIsTemp: true
 galleryImages: []
 isBoardMember: true
 boardRole: "Treasurer"

@@ -1,10 +1,10 @@
 {
-  "title": "CAALR Artwork 02",
+  "title": "Stained Glass by Carol Krah",
   "image": "/uploads/gallery/gallery-002.jpg",
-  "alt": "Artwork by a CAALR member artist",
-  "caption": "",
-  "artistSlug": "",
-  "medium": "",
+  "alt": "Stained Glass artwork by Carol Krah",
+  "caption": "Carol Krah",
+  "artistSlug": "carol-krah",
+  "medium": "Stained Glass",
   "year": 2025,
   "featured": true
 }

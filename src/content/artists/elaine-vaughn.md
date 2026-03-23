@@ -7,7 +7,7 @@ email: "Vaughne35@gmail.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/placeholder.svg"
+featuredImage: "/uploads/news/elaine-vaughn.jpg"
 galleryImages: []
 isBoardMember: true
 boardRole: "At Large"

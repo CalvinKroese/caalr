@@ -4,7 +4,7 @@ startDate: 2026-03-14
 endDate: 2026-03-14
 venueName: "Lakewood Ranch Town Hall"
 venueAddress: "8175 Lakewood Ranch Blvd, Lakewood Ranch, FL 34202"
-featuredImage: ""
+featuredImage: "/uploads/people/show-014.jpg"
 galleryImages: []
 featured: true
 ---

@@ -11,6 +11,7 @@ const artists = defineCollection({
     instagram: z.string().optional().default(''),
     facebook: z.string().optional().default(''),
     featuredImage: z.string(),
+    photoIsTemp: z.boolean().default(false),
     galleryImages: z.array(z.object({
       src: z.string(),
       caption: z.string().optional().default(''),

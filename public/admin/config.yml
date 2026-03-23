@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: CalvinKroese/caalr
   branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
@@ -28,6 +31,7 @@ collections:
       - { label: "Instagram", name: "instagram", widget: "string", required: false }
       - { label: "Facebook", name: "facebook", widget: "string", required: false }
       - { label: "Profile Photo", name: "featuredImage", widget: "image" }
+      - { label: "Photo is Temporary?", name: "photoIsTemp", widget: "boolean", default: false, hint: "Check if this is a placeholder photo — shows 'Photo Coming Soon' on the site" }
       - label: "Artwork Photos"
         name: "galleryImages"
         widget: "list"
