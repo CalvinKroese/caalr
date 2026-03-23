@@ -2,12 +2,14 @@
 interface Props {
   title: string;
   subtitle?: string;
+  label?: string;
 }
 
-const { title, subtitle } = Astro.props;
+const { title, subtitle, label } = Astro.props;
 ---
 
 <div class="section-heading">
+  {label && <p class="section-heading__label">{label}</p>}
   <h2 class="section-heading__title">{title}</h2>
   {subtitle && <p class="section-heading__subtitle">{subtitle}</p>}
 </div>

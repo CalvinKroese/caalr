@@ -2,24 +2,28 @@
 interface Props {
   title: string;
   subtitle?: string;
+  scriptLabel?: string;
   image?: string;
   cta?: {
     label: string;
     href: string;
+    variant?: string;
   };
   compact?: boolean;
 }
 
-const { title, subtitle, image, cta, compact = false } = Astro.props;
+const { title, subtitle, scriptLabel, image, cta, compact = false } = Astro.props;
 ---
 
 <section class:list={['hero', { 'hero--compact': compact, 'hero--with-image': !!image }]}>
   {image && <div class="hero__bg" style={`background-image: url('${image}')`}></div>}
+  <div class="hero__overlay"></div>
   <div class="container hero__content">
+    {scriptLabel && <p class="hero__label script">{scriptLabel}</p>}
     <h1 class="hero__title">{title}</h1>
     {subtitle && <p class="hero__subtitle">{subtitle}</p>}
     {cta && (
-      <a href={cta.href} class="btn btn--secondary hero__cta">{cta.label}</a>
+      <a href={cta.href} class:list={['btn', `btn--${cta.variant || 'coral'}`, 'hero__cta']}>{cta.label}</a>
     )}
   </div>
 </section>
@@ -27,14 +31,14 @@ const { title, subtitle, image, cta, compact = false } = Astro.props;
 <style>
   .hero {
     position: relative;
-    background-color: var(--color-primary-dark);
+    background-color: var(--color-teal-deeper);
     color: white;
-    padding-block: var(--space-xl);
+    padding-block: var(--space-xl) calc(var(--space-xl) * 1.5);
     overflow: hidden;
   }
 
   .hero--compact {
-    padding-block: var(--space-lg);
+    padding-block: var(--space-lg) calc(var(--space-lg) * 1.25);
   }
 
   .hero__bg {
@@ -42,7 +46,18 @@ const { title, subtitle, image, cta, compact = false } = Astro.props;
     inset: 0;
     background-size: cover;
     background-position: center;
-    opacity: 0.3;
+    opacity: 0.25;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(5, 77, 85, 0.85) 0%,
+      rgba(14, 154, 167, 0.7) 50%,
+      rgba(5, 77, 85, 0.8) 100%
+    );
   }
 
   .hero__content {
@@ -51,6 +66,12 @@ const { title, subtitle, image, cta, compact = false } = Astro.props;
     text-align: center;
     max-width: 800px;
     margin-inline: auto;
+  }
+
+  .hero__label {
+    color: var(--color-coral);
+    margin-bottom: 0;
+    font-size: 2rem;
   }
 
   .hero__title {
@@ -68,10 +89,12 @@ const { title, subtitle, image, cta, compact = false } = Astro.props;
     opacity: 0.9;
     margin-bottom: var(--space-md);
     line-height: 1.6;
+    max-width: 600px;
+    margin-inline: auto;
   }
 
   .hero__cta {
-    margin-top: var(--space-sm);
+    margin-top: var(--space-xs);
   }
 
   @media (max-width: 768px) {
@@ -80,6 +103,9 @@ const { title, subtitle, image, cta, compact = false } = Astro.props;
     }
     .hero--compact .hero__title {
       font-size: var(--font-size-xl);
+    }
+    .hero__label {
+      font-size: 1.5rem;
     }
   }
 </style>
