@@ -1,32 +1,61 @@
 :root {
-  /* Colors — modernized green/gold palette */
-  --color-primary: #1a6847;
-  --color-primary-light: #2d8f65;
-  --color-primary-dark: #0f3d2a;
-  --color-secondary: #b8960c;
-  --color-secondary-light: #f5ecc0;
-  --color-bg: #fafdf7;
-  --color-bg-alt: #eef7e8;
-  --color-surface: #ffffff;
-  --color-text: #1a2e1a;
-  --color-text-muted: #4a6b4a;
-  --color-border: #c8dcc0;
-  --color-focus: #b8960c;
+  /* ===== Florida Beach Artsy Palette ===== */
 
-  /* Typography */
-  --font-heading: 'Merriweather', Georgia, serif;
-  --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-size-base: 1.125rem; /* 18px */
-  --font-size-sm: 0.9375rem;  /* 15px — only for metadata, never body */
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2xl: 1.875rem;
-  --font-size-3xl: 2.25rem;
-  --font-size-4xl: 2.75rem;
+  /* Teal — primary, ocean water */
+  --color-teal:         #0E9AA7;
+  --color-teal-dark:    #076E78;
+  --color-teal-deeper:  #054D55;
+
+  /* Coral — pop accent */
+  --color-coral:        #FF6F61;
+  --color-coral-dark:   #E8524A;
+
+  /* Gold — sunshine, warmth */
+  --color-gold:         #F5A623;
+  --color-gold-light:   #FFF3D6;
+
+  /* Backgrounds — warm sand and seafoam */
+  --color-sand:         #FFFDF7;
+  --color-seafoam:      #E8F6F1;
+  --color-driftwood:    #F7F1E8;
+
+  /* Text */
+  --color-charcoal:     #2D3436;
+  --color-drift:        #636E72;
+
+  /* Functional */
+  --color-border:       #D5E0DC;
+  --color-focus:        #F5A623;
+
+  /* Semantic mappings (used by existing components) */
+  --color-primary:        var(--color-teal);
+  --color-primary-light:  var(--color-teal);
+  --color-primary-dark:   var(--color-teal-dark);
+  --color-secondary:      var(--color-coral);
+  --color-secondary-light: var(--color-gold-light);
+  --color-bg:             var(--color-sand);
+  --color-bg-alt:         var(--color-seafoam);
+  --color-surface:        #ffffff;
+  --color-text:           var(--color-charcoal);
+  --color-text-muted:     var(--color-drift);
+
+  /* ===== Typography ===== */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-script: 'Caveat', cursive;
+
+  --font-size-base: 1.125rem;  /* 18px */
+  --font-size-sm: 0.9375rem;   /* 15px */
+  --font-size-lg: 1.25rem;     /* 20px */
+  --font-size-xl: 1.5rem;      /* 24px */
+  --font-size-2xl: 2rem;       /* 32px */
+  --font-size-3xl: 2.5rem;     /* 40px */
+  --font-size-4xl: 3.25rem;    /* 52px */
+  --font-size-script: 1.75rem; /* 28px — for Caveat */
   --line-height-base: 1.7;
-  --line-height-heading: 1.3;
+  --line-height-heading: 1.25;
 
-  /* Spacing */
+  /* ===== Spacing ===== */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;
@@ -34,12 +63,13 @@
   --space-xl: 4rem;
   --space-section: clamp(3rem, 8vw, 6rem);
 
-  /* Layout */
+  /* ===== Layout ===== */
   --max-width: 1200px;
   --content-padding: clamp(1rem, 4vw, 2rem);
 
-  /* Cards */
-  --radius-card: 8px;
-  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.12);
+  /* ===== Cards — rounder, warmer ===== */
+  --radius-card: 16px;
+  --radius-pill: 50px;
+  --shadow-card: 0 2px 12px rgba(14, 154, 167, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 8px 24px rgba(14, 154, 167, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
 }

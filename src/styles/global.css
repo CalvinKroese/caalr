@@ -27,7 +27,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   line-height: var(--line-height-heading);
-  color: var(--color-primary-dark);
+  color: var(--color-teal-dark);
   margin-bottom: var(--space-sm);
 }
 
@@ -41,13 +41,16 @@ p {
 }
 
 a {
-  color: var(--color-primary-light);
+  color: var(--color-teal-dark);
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-teal);
+  transition: color 0.15s ease;
 }
 
 a:hover {
-  color: var(--color-primary-dark);
+  color: var(--color-coral);
+  text-decoration-color: var(--color-coral);
 }
 
 img {
@@ -59,7 +62,8 @@ img {
 /* ===== Focus ===== */
 :focus-visible {
   outline: 3px solid var(--color-focus);
-  outline-offset: 2px;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 /* ===== Skip Nav ===== */
@@ -69,10 +73,11 @@ img {
   top: 0;
   z-index: 1000;
   padding: var(--space-xs) var(--space-sm);
-  background: var(--color-primary-dark);
+  background: var(--color-teal-deeper);
   color: white;
   font-size: var(--font-size-base);
   text-decoration: none;
+  border-radius: 0 0 var(--radius-card) 0;
 }
 
 .skip-nav:focus {
@@ -95,8 +100,22 @@ img {
   background-color: var(--color-bg-alt);
 }
 
-.section--surface {
-  background-color: var(--color-surface);
+.section--warm {
+  background-color: var(--color-driftwood);
+}
+
+.section--teal {
+  background-color: var(--color-teal-deeper);
+  color: white;
+}
+
+.section--teal h2,
+.section--teal h3 {
+  color: white;
+}
+
+.section--teal a {
+  color: var(--color-gold-light);
 }
 
 /* ===== Grid ===== */
@@ -117,17 +136,19 @@ img {
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
 }
 
-/* ===== Card ===== */
+/* ===== Card — rounded, warm ===== */
 .card {
   background: var(--color-surface);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   overflow: hidden;
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  border: 1px solid rgba(14, 154, 167, 0.06);
 }
 
 .card:hover {
   box-shadow: var(--shadow-card-hover);
+  transform: translateY(-3px);
 }
 
 .card__image {
@@ -143,6 +164,7 @@ img {
 .card__title {
   font-size: var(--font-size-lg);
   margin-bottom: var(--space-xs);
+  color: var(--color-teal-dark);
 }
 
 .card__meta {
@@ -150,67 +172,138 @@ img {
   color: var(--color-text-muted);
 }
 
-/* ===== Buttons ===== */
+/* ===== Buttons — pill shaped ===== */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.75rem;
   border: none;
-  border-radius: var(--radius-card);
+  border-radius: var(--radius-pill);
   font-family: var(--font-body);
   font-size: var(--font-size-base);
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
 }
 
 .btn:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .btn--primary {
-  background-color: var(--color-primary);
+  background-color: var(--color-teal);
   color: white;
+  box-shadow: 0 2px 8px rgba(14, 154, 167, 0.3);
 }
 
 .btn--primary:hover {
-  background-color: var(--color-primary-dark);
+  background-color: var(--color-teal-dark);
+  color: white;
+  box-shadow: 0 4px 12px rgba(14, 154, 167, 0.4);
+}
+
+.btn--coral {
+  background-color: var(--color-coral);
+  color: white;
+  box-shadow: 0 2px 8px rgba(255, 111, 97, 0.3);
+}
+
+.btn--coral:hover {
+  background-color: var(--color-coral-dark);
   color: white;
 }
 
 .btn--secondary {
-  background-color: var(--color-secondary);
-  color: white;
+  background-color: var(--color-gold);
+  color: var(--color-charcoal);
+  box-shadow: 0 2px 8px rgba(245, 166, 35, 0.3);
 }
 
 .btn--secondary:hover {
-  background-color: #9a7d0a;
+  background-color: #e09510;
+  color: var(--color-charcoal);
+}
+
+.btn--outline {
+  background: transparent;
+  border: 2px solid var(--color-teal);
+  color: var(--color-teal-dark);
+}
+
+.btn--outline:hover {
+  background: var(--color-teal);
   color: white;
 }
 
-/* ===== Badge ===== */
+/* ===== Badge — colorful ===== */
 .badge {
   display: inline-block;
-  padding: 0.2rem 0.6rem;
+  padding: 0.25rem 0.75rem;
   font-size: var(--font-size-sm);
-  background-color: var(--color-bg-alt);
-  color: var(--color-primary);
-  border-radius: 4px;
   font-weight: 600;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-seafoam);
+  color: var(--color-teal-dark);
 }
 
-/* ===== Section Heading ===== */
+.badge--coral {
+  background-color: #FFE5E2;
+  color: var(--color-coral-dark);
+}
+
+.badge--gold {
+  background-color: var(--color-gold-light);
+  color: #8B6914;
+}
+
+/* ===== Script accent (Caveat) ===== */
+.script {
+  font-family: var(--font-script);
+  font-size: var(--font-size-script);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.script--sm {
+  font-size: 1.375rem;
+}
+
+.script--lg {
+  font-size: 2.25rem;
+}
+
+/* ===== Section Heading — with Caveat label ===== */
 .section-heading {
   text-align: center;
   margin-bottom: var(--space-lg);
 }
 
+.section-heading__label {
+  font-family: var(--font-script);
+  font-size: var(--font-size-script);
+  color: var(--color-coral);
+  margin-bottom: 0;
+  line-height: 1;
+}
+
 .section-heading__title {
   font-size: var(--font-size-2xl);
-  color: var(--color-primary-dark);
+  color: var(--color-teal-dark);
   margin-bottom: var(--space-xs);
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading__title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--color-coral);
+  border-radius: 2px;
+  margin: var(--space-xs) auto 0;
 }
 
 .section-heading__subtitle {
@@ -237,8 +330,24 @@ img {
 .text-muted { color: var(--color-text-muted); }
 
 /* ===== Prose (Markdown content) ===== */
-.prose h2 { margin-top: var(--space-lg); }
+.prose h2 {
+  margin-top: var(--space-lg);
+  color: var(--color-teal-dark);
+}
 .prose h3 { margin-top: var(--space-md); }
 .prose ul, .prose ol { padding-left: 1.5em; margin-bottom: var(--space-sm); }
 .prose li { margin-bottom: var(--space-xs); }
-.prose strong { color: var(--color-primary-dark); }
+.prose strong { color: var(--color-teal-dark); }
+
+/* ===== Coral accent line ===== */
+.accent-line {
+  width: 60px;
+  height: 3px;
+  background: var(--color-coral);
+  border-radius: 2px;
+  border: none;
+}
+
+.accent-line--center {
+  margin-inline: auto;
+}
