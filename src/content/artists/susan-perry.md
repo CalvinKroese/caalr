@@ -7,7 +7,7 @@ email: "perrysfl150@gmail.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/susan-perry/profile.jpg"
+featuredImage: "/uploads/artists/placeholder.svg"
 galleryImages: []
 isBoardMember: true
 boardRole: "Secretary"

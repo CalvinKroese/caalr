@@ -7,7 +7,7 @@ email: "kaplanbb@yahoo.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/barbara-kaplan/profile.jpg"
+featuredImage: "/uploads/artists/placeholder.svg"
 galleryImages: []
 isBoardMember: false
 boardRole: ""

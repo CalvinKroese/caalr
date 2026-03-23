@@ -7,7 +7,7 @@ email: "JMB2015@verizon.net"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/benise-jones/profile.jpg"
+featuredImage: "/uploads/artists/placeholder.svg"
 galleryImages: []
 isBoardMember: true
 boardRole: "Treasurer"

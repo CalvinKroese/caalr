@@ -7,7 +7,7 @@ email: "deborahjsdesigns@yahoo.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/deborah-jernigan/profile.jpg"
+featuredImage: "/uploads/artists/placeholder.svg"
 galleryImages: []
 isBoardMember: false
 boardRole: ""

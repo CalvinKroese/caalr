@@ -7,7 +7,7 @@ email: "WKpottery@yahoo.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/wilma-kroese/profile.jpg"
+featuredImage: "/uploads/artists/placeholder.svg"
 galleryImages: []
 isBoardMember: true
 boardRole: "At Large"

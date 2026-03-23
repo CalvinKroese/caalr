@@ -7,7 +7,7 @@ email: "oysterdesignstudiocc@gmail.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/amy-jasperson/profile.jpg"
+featuredImage: "/uploads/artists/placeholder.svg"
 galleryImages: []
 isBoardMember: false
 boardRole: ""

@@ -7,7 +7,7 @@ email: "barbedwiredesigns@yahoo.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/barby-cummings/profile.jpg"
+featuredImage: "/uploads/artists/placeholder.svg"
 galleryImages: []
 isBoardMember: true
 boardRole: "At Large"

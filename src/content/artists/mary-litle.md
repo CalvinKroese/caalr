@@ -7,7 +7,7 @@ email: "marylitle@msn.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/mary-litle/profile.jpg"
+featuredImage: "/uploads/artists/placeholder.svg"
 galleryImages: []
 isBoardMember: false
 boardRole: ""

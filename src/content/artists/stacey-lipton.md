@@ -7,7 +7,7 @@ email: "slinteriors140@msn.com"
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/artists/stacey-lipton/profile.jpg"
+featuredImage: "/uploads/artists/placeholder.svg"
 galleryImages: []
 isBoardMember: true
 boardRole: "Vice President"

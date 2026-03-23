@@ -27,7 +27,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   line-height: var(--line-height-heading);
-  color: var(--color-teal-dark);
+  color: var(--color-green-dark);
   margin-bottom: var(--space-sm);
 }
 
@@ -41,10 +41,10 @@ p {
 }
 
 a {
-  color: var(--color-teal-dark);
+  color: var(--color-green-dark);
   text-decoration: underline;
   text-underline-offset: 3px;
-  text-decoration-color: var(--color-teal);
+  text-decoration-color: var(--color-green);
   transition: color 0.15s ease;
 }
 
@@ -73,7 +73,7 @@ img {
   top: 0;
   z-index: 1000;
   padding: var(--space-xs) var(--space-sm);
-  background: var(--color-teal-deeper);
+  background: var(--color-green-deeper);
   color: white;
   font-size: var(--font-size-base);
   text-decoration: none;
@@ -104,17 +104,17 @@ img {
   background-color: var(--color-driftwood);
 }
 
-.section--teal {
-  background-color: var(--color-teal-deeper);
+.section--accent {
+  background-color: var(--color-green-deeper);
   color: white;
 }
 
-.section--teal h2,
-.section--teal h3 {
+.section--accent h2,
+.section--accent h3 {
   color: white;
 }
 
-.section--teal a {
+.section--accent a {
   color: var(--color-gold-light);
 }
 
@@ -164,7 +164,7 @@ img {
 .card__title {
   font-size: var(--font-size-lg);
   margin-bottom: var(--space-xs);
-  color: var(--color-teal-dark);
+  color: var(--color-green-dark);
 }
 
 .card__meta {
@@ -199,7 +199,7 @@ img {
 }
 
 .btn--primary:hover {
-  background-color: var(--color-teal-dark);
+  background-color: var(--color-green-dark);
   color: white;
   box-shadow: 0 4px 12px rgba(14, 154, 167, 0.4);
 }
@@ -229,7 +229,7 @@ img {
 .btn--outline {
   background: transparent;
   border: 2px solid var(--color-teal);
-  color: var(--color-teal-dark);
+  color: var(--color-green-dark);
 }
 
 .btn--outline:hover {
@@ -245,7 +245,7 @@ img {
   font-weight: 600;
   border-radius: var(--radius-pill);
   background-color: var(--color-seafoam);
-  color: var(--color-teal-dark);
+  color: var(--color-green-dark);
 }
 
 .badge--coral {
@@ -290,7 +290,7 @@ img {
 
 .section-heading__title {
   font-size: var(--font-size-2xl);
-  color: var(--color-teal-dark);
+  color: var(--color-green-dark);
   margin-bottom: var(--space-xs);
   position: relative;
   display: inline-block;
@@ -332,12 +332,12 @@ img {
 /* ===== Prose (Markdown content) ===== */
 .prose h2 {
   margin-top: var(--space-lg);
-  color: var(--color-teal-dark);
+  color: var(--color-green-dark);
 }
 .prose h3 { margin-top: var(--space-md); }
 .prose ul, .prose ol { padding-left: 1.5em; margin-bottom: var(--space-sm); }
 .prose li { margin-bottom: var(--space-xs); }
-.prose strong { color: var(--color-teal-dark); }
+.prose strong { color: var(--color-green-dark); }
 
 /* ===== Coral accent line ===== */
 .accent-line {
