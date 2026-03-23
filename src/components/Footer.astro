@@ -12,7 +12,7 @@ const year = new Date().getFullYear();
   <div class="container site-footer__inner">
     <div class="site-footer__col">
       <img
-        src="/uploads/logo/caalr-logo-4x.png"
+        src="/uploads/logo/caalr-logo-transparent.png"
         alt="CAALR logo"
         class="site-footer__logo"
         width="150"
@@ -79,9 +79,11 @@ const year = new Date().getFullYear();
   }
 
   .site-footer__logo {
-    height: 60px;
+    height: 55px;
     width: auto;
-    filter: brightness(0) invert(1);
+    background: white;
+    border-radius: 8px;
+    padding: 4px 8px;
     margin-bottom: var(--space-sm);
   }
 
