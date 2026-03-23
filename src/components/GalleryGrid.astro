@@ -3,7 +3,6 @@ interface GalleryImage {
   title: string;
   image: string;
   alt: string;
-  caption?: string;
   artistSlug?: string;
 }
 
@@ -23,7 +22,7 @@ const { images } = Astro.props;
         data-index={i}
         data-src={img.image}
         data-alt={img.alt}
-        data-caption={img.caption || ''}
+        data-title={img.title}
         aria-label={`View ${img.title}: ${img.alt}`}
       >
         <img
@@ -34,7 +33,7 @@ const { images } = Astro.props;
           height="300"
           class="gallery-grid__img"
         />
-        {img.caption && <span class="gallery-grid__caption">{img.caption}</span>}
+        <span class="gallery-grid__caption">{img.title}</span>
       </button>
     ))}
   </div>
@@ -63,7 +62,7 @@ const { images } = Astro.props;
       const el = items[index] as HTMLElement;
       img.src = el.dataset.src || '';
       img.alt = el.dataset.alt || '';
-      caption.textContent = el.dataset.caption || '';
+      caption.textContent = el.dataset.title || '';
       if (!dialog.open) dialog.showModal();
     }
 

@@ -12,7 +12,6 @@ photoIsTemp: true
 galleryImages: []
 isBoardMember: false
 boardRole: ""
-sortOrder: 20
 status: "active"
 ---
 

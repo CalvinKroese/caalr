@@ -11,7 +11,6 @@ featuredImage: "/uploads/news/elaine-vaughn.jpg"
 galleryImages: []
 isBoardMember: true
 boardRole: "At Large"
-sortOrder: 7
 status: "active"
 ---
 

@@ -11,7 +11,6 @@ featuredImage: "/uploads/news/carol-krah.jpg"
 galleryImages: []
 isBoardMember: true
 boardRole: "President"
-sortOrder: 1
 status: "active"
 ---
 

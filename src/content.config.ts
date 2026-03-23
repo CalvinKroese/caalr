@@ -18,7 +18,6 @@ const artists = defineCollection({
     })).default([]),
     isBoardMember: z.boolean().default(false),
     boardRole: z.string().optional().default(''),
-    sortOrder: z.number().default(100),
     status: z.enum(['active', 'alumni']).default('active'),
   }),
 });
@@ -43,9 +42,7 @@ const gallery = defineCollection({
     title: z.string(),
     image: z.string(),
     alt: z.string(),
-    caption: z.string().optional().default(''),
     artistSlug: z.string().optional().default(''),
-    medium: z.string().optional().default(''),
     year: z.number().optional(),
     featured: z.boolean().default(false),
   }),

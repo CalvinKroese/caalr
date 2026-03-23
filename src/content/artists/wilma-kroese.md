@@ -11,7 +11,6 @@ featuredImage: "/uploads/news/wilma-kroese.jpg"
 galleryImages: []
 isBoardMember: true
 boardRole: "At Large"
-sortOrder: 6
 status: "active"
 ---
 

@@ -12,7 +12,6 @@ photoIsTemp: true
 galleryImages: []
 isBoardMember: true
 boardRole: "Treasurer"
-sortOrder: 4
 status: "active"
 ---
 

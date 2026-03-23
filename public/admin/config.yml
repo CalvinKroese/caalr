@@ -43,7 +43,6 @@ collections:
           - { label: "Caption", name: "caption", widget: "string", required: false }
       - { label: "Board Member?", name: "isBoardMember", widget: "boolean", default: false }
       - { label: "Board Role", name: "boardRole", widget: "string", required: false, hint: "e.g. President, Vice President, At Large" }
-      - { label: "Display Order", name: "sortOrder", widget: "number", value_type: "int", default: 100, hint: "Lower numbers appear first on the Artists page" }
       - { label: "Status", name: "status", widget: "select", options: ["active", "alumni"], default: "active", hint: "Alumni are kept in the system but hidden from the website" }
 
   - name: "events"
@@ -81,10 +80,8 @@ collections:
       - { label: "Image Title", name: "title", widget: "string", hint: "A short title for this artwork" }
       - { label: "Photo", name: "image", widget: "image" }
       - { label: "Description for Screen Readers", name: "alt", widget: "string", hint: "Describe what is shown in the photo (for visually impaired visitors)" }
-      - { label: "Caption (optional)", name: "caption", widget: "string", required: false }
-      - { label: "Artist Name (optional)", name: "artistSlug", widget: "string", required: false, hint: "Enter the artist's URL name (e.g. wilma-kroese)" }
-      - { label: "Medium (optional)", name: "medium", widget: "string", required: false, hint: "e.g. Pottery, Watercolor" }
-      - { label: "Year (optional)", name: "year", widget: "number", required: false }
+      - { label: "Artist", name: "artistSlug", widget: "string", required: false, hint: "Enter the artist's URL name (e.g. wilma-kroese) — image will appear on their page" }
+      - { label: "Year", name: "year", widget: "number", required: false }
       - { label: "Feature on Homepage?", name: "featured", widget: "boolean", default: false }
 
   - name: "news"

@@ -23,7 +23,6 @@ const ownImages = galleryImages.map((img, i) => ({
   title: img.caption || `${name} artwork ${i + 1}`,
   image: img.src,
   alt: img.caption || `Artwork by ${name}`,
-  caption: img.caption,
 }));
 
 // Also pull any gallery collection items tagged with this artist's slug
@@ -34,7 +33,6 @@ const galleryMatches = allGallery
     title: g.data.title,
     image: g.data.image,
     alt: g.data.alt,
-    caption: g.data.caption,
   }));
 
 // Combine both sources, deduplicate by image path

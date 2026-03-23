@@ -4,12 +4,12 @@ export async function getActiveArtists() {
   const artists = await getCollection('artists');
   return artists
     .filter((a) => a.data.status === 'active')
-    .sort((a, b) => a.data.sortOrder - b.data.sortOrder || a.data.name.localeCompare(b.data.name));
+    .sort((a, b) => a.data.name.localeCompare(b.data.name));
 }
 
 export async function getAllArtists() {
   const artists = await getCollection('artists');
-  return artists.sort((a, b) => a.data.sortOrder - b.data.sortOrder || a.data.name.localeCompare(b.data.name));
+  return artists.sort((a, b) => a.data.name.localeCompare(b.data.name));
 }
 
 export async function getUpcomingEvents() {

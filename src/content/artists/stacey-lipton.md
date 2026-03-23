@@ -12,7 +12,6 @@ photoIsTemp: true
 galleryImages: []
 isBoardMember: true
 boardRole: "Vice President"
-sortOrder: 2
 status: "active"
 ---
 

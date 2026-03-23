@@ -12,7 +12,6 @@ photoIsTemp: true
 galleryImages: []
 isBoardMember: true
 boardRole: "Secretary"
-sortOrder: 3
 status: "active"
 ---
 
