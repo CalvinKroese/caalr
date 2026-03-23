@@ -26,7 +26,7 @@ const upcoming = isUpcoming(startDate);
   )}
   <div class="card__body">
     <div class="event-card__status">
-      <span class:list={['badge', { 'badge--upcoming': upcoming }]}>
+      <span class:list={['badge', upcoming ? 'badge--coral' : 'badge--gold']}>
         {upcoming ? 'Upcoming' : 'Past'}
       </span>
     </div>
@@ -45,10 +45,5 @@ const upcoming = isUpcoming(startDate);
 
   .event-card__status {
     margin-bottom: var(--space-xs);
-  }
-
-  .badge--upcoming {
-    background-color: var(--color-secondary-light);
-    color: var(--color-secondary);
   }
 </style>
