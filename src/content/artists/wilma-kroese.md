@@ -10,7 +10,9 @@ facebook: ""
 featuredImage: /uploads/wilma-kroese-headshot-2.jpg
 photoIsTemp: false
 galleryImages:
-  - src: /uploads/wilma-kroese-2.heic
+  - src: /uploads/wilma-kroese-10.jpeg
+  - src: /uploads/wilma-kroese-9.jpg
+  - src: /uploads/wilma-kroese-8.jpg
 isBoardMember: true
 boardRole: At Large
 status: active
