@@ -8,11 +8,19 @@ website: ""
 instagram: ""
 facebook: ""
 featuredImage: /uploads/wilma-kroese-headshot-2.jpg
-photoIsTemp: true
-galleryImages: []
+photoIsTemp: false
+galleryImages:
+  - src: /uploads/wilma-kroese-2.heic
 isBoardMember: true
 boardRole: At Large
 status: active
 ---
+As a native of the Netherlands, born and raised in Amsterdam, I moved to Bradenton with my family in 2005.
 
-Wilma Kroese is a Pottery artist and member of the Creative Arts Association of Lakewood Ranch.
+ I have always been creative and designed and made my own clothes, since I was in High school.
+
+ I took my first pottery class in 2008, and was hooked on clay immediately.
+
+ I love to make functional pieces on the pottery wheel.
+
+ My work is inspired by the South Western Native American pottery, more recently I started to experiment with more “earthy” firing techniques like Raku, Horse hair, Saggar and Obvara.
