@@ -7,8 +7,6 @@ backend:
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
-media_library:
-  folder_support: true
 
 collections:
   - name: "artists"
