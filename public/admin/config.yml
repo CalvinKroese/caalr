@@ -16,8 +16,10 @@ collections:
     slug: "{{name | slugify}}"
     identifier_field: "name"
     format: "frontmatter"
-    sortable_fields: ["name", "sortOrder"]
+    sortable_fields: ["name"]
     summary: "{{name}} — {{mediums}}"
+    editor:
+      preview: false
     fields:
       - { label: "Name", name: "name", widget: "string", hint: "Full name of the artist" }
       - label: "Art Medium(s)"
@@ -51,6 +53,8 @@ collections:
     format: "frontmatter"
     sortable_fields: ["title", "startDate"]
     summary: "{{title}} — {{startDate}}"
+    editor:
+      preview: false
     fields:
       - { label: "Show / Event Name", name: "title", widget: "string" }
       - { label: "Start Date", name: "startDate", widget: "datetime" }
@@ -74,6 +78,8 @@ collections:
     format: "json"
     sortable_fields: ["title", "year"]
     summary: "{{title}} ({{year}})"
+    editor:
+      preview: false
     fields:
       - { label: "Image Title", name: "title", widget: "string", hint: "A short title for this artwork" }
       - { label: "Photo", name: "image", widget: "image" }
@@ -90,6 +96,8 @@ collections:
     format: "frontmatter"
     sortable_fields: ["title", "date"]
     summary: "{{title}} — {{date}}"
+    editor:
+      preview: false
     fields:
       - { label: "Headline", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
@@ -101,6 +109,8 @@ collections:
 
   - name: "pages"
     label: "Pages"
+    editor:
+      preview: false
     files:
       - label: "Home Page"
         name: "home"
@@ -127,6 +137,8 @@ collections:
 
   - name: "settings"
     label: "Site Settings"
+    editor:
+      preview: false
     files:
       - label: "General"
         name: "site"
