@@ -23,7 +23,7 @@
         border-radius: 18px;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
         padding: 2.5rem 2rem;
-        max-width: 460px;
+        max-width: 480px;
         width: 100%;
         text-align: center;
       }
@@ -55,6 +55,18 @@
       .status { margin-top: 1.25rem; font-size: 1rem; line-height: 1.5; min-height: 1.5rem; }
       .status.ok { color: var(--green-dark); }
       .status.err { color: #b00020; }
+      .badge-area { margin-top: 1.5rem; }
+      .badge-area img { height: 28px; }
+      .badge-area p { font-size: 0.85rem; color: #777; margin: 0.5rem 0 0; }
+      .view-link {
+        display: inline-block;
+        margin-top: 1.5rem;
+        font-size: 1rem;
+        color: var(--green-dark);
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .view-link:hover { text-decoration: underline; }
       .hint { margin-top: 1.5rem; font-size: 0.8rem; color: #999; }
       .hint a { color: #999; }
     </style>
@@ -63,8 +75,9 @@
     <div class="card">
       <h1>Publish the CAALR Website</h1>
       <p class="lead">
-        When you're happy with your changes, press the button below to put them
-        live. It takes about two minutes for the website to update.
+        When you're happy with your changes in the editor, press the button
+        below to put them live. It takes about two minutes for the website to
+        update.
       </p>
 
       <div id="key-row" hidden>
@@ -75,16 +88,36 @@
       <button id="go" type="button">Publish Website</button>
       <p id="status" class="status" role="status" aria-live="polite"></p>
 
+      <div id="badge-area" class="badge-area" hidden>
+        <img id="badge" alt="Website publishing status" />
+        <p>When this says <strong>“published”</strong>, your changes are live.</p>
+      </div>
+
+      <a id="view" class="view-link" target="_blank" rel="noopener">Open the live website&nbsp;↗</a>
+
       <p class="hint"><a href="#" id="forget" hidden>Forget saved password</a></p>
     </div>
 
     <script>
+      // ─── Settings — Calvin fills these in once ────────────────────────────
+      // The public address of the website your mom should view:
+      const SITE_URL = "https://caalr.netlify.app/";
+      // Netlify deploy-status badge URL (Netlify dashboard →
+      // Site configuration → General → Status badges). Leave "" to hide it.
+      const BADGE_URL = "";
+      // ──────────────────────────────────────────────────────────────────────
+
       const STORE_KEY = "caalr-publish-key";
       const keyRow = document.getElementById("key-row");
       const keyInput = document.getElementById("key");
       const goBtn = document.getElementById("go");
       const statusEl = document.getElementById("status");
+      const badgeArea = document.getElementById("badge-area");
+      const badgeImg = document.getElementById("badge");
+      const viewLink = document.getElementById("view");
       const forget = document.getElementById("forget");
+
+      viewLink.href = SITE_URL;
 
       const saved = localStorage.getItem(STORE_KEY);
       if (saved) {
@@ -105,6 +138,15 @@
         statusEl.className = "status" + (kind ? " " + kind : "");
       }
 
+      // Once publishing starts, show the live status badge and keep it fresh.
+      function startBadge() {
+        if (!BADGE_URL) return;
+        badgeArea.hidden = false;
+        const refresh = () => { badgeImg.src = BADGE_URL + "?t=" + Date.now(); };
+        refresh();
+        setInterval(refresh, 12000);
+      }
+
       goBtn.addEventListener("click", async () => {
         const key = keyInput.value.trim();
         goBtn.disabled = true;
@@ -117,7 +159,11 @@
             localStorage.setItem(STORE_KEY, key); // remember on this device
             keyRow.hidden = true;
             forget.hidden = false;
-            setStatus(data.message || "Publishing!", "ok");
+            setStatus(
+              data.message || "Publishing! Your changes will be live in a couple of minutes.",
+              "ok",
+            );
+            startBadge();
           } else {
             setStatus(data.message || "Something went wrong. Please try again.", "err");
             goBtn.disabled = false;

@@ -2,6 +2,33 @@
 
 This guide explains how to update the CAALR website using the content editor. You do not need any technical knowledge — just a web browser and your login credentials.
 
+## ⭐ The Most Important Thing: Updating the Website Takes Two Steps
+
+Updating the website now happens in **two separate steps**. Think of it like email:
+
+1. **Save your changes** in the editor — like *writing and saving a draft*.
+2. **Publish the website** from your Publish page — like *hitting Send*.
+
+**Your changes do NOT appear on the live website until you do step 2.** This is normal and is what keeps the website free to run.
+
+### Step 1 — Save your changes (in the editor)
+
+As you add artists, photos, events, and so on, click the editor's **Publish** button (top right) after each one. Despite its name, this button only **saves** your work into the website's files — it does *not* put it on the public website yet. Save as many changes as you like, across as many sittings as you like.
+
+> Throughout the rest of this guide, wherever it says "click Publish," it means this editor button — it **saves** your change.
+
+### Step 2 — Publish the website (when you're finished)
+
+When you've finished editing and you want everyone to see your changes:
+
+1. Open **caalr.netlify.app/publish** — **bookmark this page!**
+2. Click the big green **Publish Website** button
+3. The first time only, type the password Calvin gave you (your browser remembers it after that, so next time it's just one click)
+4. Watch the little status indicator — when it says **“published,”** you're live
+5. Click **Open the live website** to see your changes
+
+You only do step 2 **once**, when you're done — not after every change. It takes about two minutes.
+
 ## How to Log In
 
 1. Open your web browser (Chrome, Safari, or Firefox)
@@ -26,8 +53,8 @@ You will see the content editor with sections on the left: Artists, Shows & Even
    - **Display Order**: Lower numbers appear first (use 10, 20, 30, etc.)
    - **Status**: Leave as "active"
 4. Write a longer biography in the text area at the bottom
-5. Click **Publish** (top right)
-6. Wait 2-3 minutes for the site to update
+5. Click **Publish** (top right) to **save** the new artist
+6. When you're finished editing, **publish the website** to make it live (see the two-step process at the top of this guide)
 
 ## Editing an Existing Artist
 
@@ -116,10 +143,10 @@ This keeps their record in the system but hides them from the website. Do NOT de
 ## Troubleshooting
 
 ### "My changes aren't showing up"
-1. **Wait 2-3 minutes.** After you click Publish, the site needs time to rebuild
-2. **Refresh the page.** Press Ctrl+R (or Cmd+R on Mac) to force a refresh
-3. **Clear your browser cache.** Sometimes old pages are stored in your browser
-4. **Check that you clicked Publish.** The button should say "Published" after clicking
+1. **Did you publish the website?** Saving in the editor is only step 1. Go to **caalr.netlify.app/publish** and click **Publish Website** (step 2). This is by far the most common reason changes don't appear.
+2. **Wait about 2 minutes** after clicking Publish Website — the site needs a moment to update. Watch for the status to say "published."
+3. **Refresh the page.** Press Ctrl+R (or Cmd+R on Mac) to force a refresh
+4. **Clear your browser cache.** Sometimes old pages are stored in your browser
 
 ### "I can't log in"
 1. Make sure you're going to the right address: **caalr.com/admin**
