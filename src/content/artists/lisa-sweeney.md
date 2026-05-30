@@ -1,18 +1,16 @@
 ---
-name: "Lisa Sweeney"
+name: Lisa Sweeney
 mediums:
-  - "Resin Art"
-shortBio: "Lisa Sweeney is a Resin Art artist and member of CAALR."
-email: "edlisa211@gmail.com"
+  - Resin Art
+shortBio: Lisa Sweeney is a Resin Art artist and member of CAALR.
+email: edlisa211@gmail.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/people/about-001.jpg"
+featuredImage: /uploads/lisa-sweeney-2.jpeg
 photoIsTemp: true
 galleryImages: []
 isBoardMember: false
 boardRole: ""
-status: "active"
+status: active
 ---
-
-Lisa Sweeney is a Resin Art artist and member of the Creative Arts Association of Lakewood Ranch.
