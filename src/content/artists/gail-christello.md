@@ -9,7 +9,8 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/gail-cristello-headshot.jpg
 photoIsTemp: true
-galleryImages: []
+galleryImages:
+  - src: /uploads/gail-cristello-3.jpeg
 isBoardMember: false
 boardRole: ""
 status: active
