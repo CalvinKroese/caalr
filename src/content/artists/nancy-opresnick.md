@@ -1,18 +1,27 @@
 ---
-name: "Nancy Opresnick"
+name: Susan Kerr
 mediums:
-  - "Pottery"
-shortBio: "Nancy Opresnick is a Pottery artist and member of CAALR."
-email: "opresnickn@gmail.com"
+  - Clay Raku Fired
+shortBio: Sue Kerr is a Pottery artist and member of CAALR.
+email: kerrs757@gmail.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/people/home-005.jpg"
+featuredImage: /uploads/sue-kerr-headshot.jpeg
 photoIsTemp: true
 galleryImages: []
 isBoardMember: false
 boardRole: ""
-status: "active"
+status: active
 ---
+susan kerr
 
-Nancy Opresnick is a Pottery artist and member of the Creative Arts Association of Lakewood Ranch.
+I have spent my life making things with my hands. I studied
+
+at Art Center College of Design. My sculptures are often
+
+animals and I try to capture the humor, spirit and quirks that
+
+bring them to life. I am especially drawn to raku firing where
+
+fire, smoke and chance leave an unpredictable result.
