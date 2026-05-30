@@ -1,18 +1,19 @@
 ---
-name: "Amy Jasperson"
+name: Laurie Zelen
 mediums:
-  - "Stained Glass"
-shortBio: "Amy Jasperson is a Stained Glass artist and member of CAALR."
-email: "oysterdesignstudiocc@gmail.com"
+  - mixed media
+shortBio: Laurie Zelen is a mixed media artist and member of CAALR.
+email: ""
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/people/show-008.jpg"
+featuredImage: /uploads/people/show-008.jpg
 photoIsTemp: true
 galleryImages: []
 isBoardMember: false
 boardRole: ""
-status: "active"
+status: active
 ---
 
-Amy Jasperson is a Stained Glass artist and member of the Creative Arts Association of Lakewood Ranch.
+
+I have worked with several mediums in my life. These altered cigar boxes is my new passion.
