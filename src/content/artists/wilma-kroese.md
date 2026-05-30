@@ -13,6 +13,7 @@ galleryImages:
   - src: /uploads/wilma-kroese-10.jpeg
   - src: /uploads/wilma-kroese-9.jpg
   - src: /uploads/wilma-kroese-8.jpg
+    caption: pottery by Wilma Kroese
 isBoardMember: true
 boardRole: At Large
 status: active
