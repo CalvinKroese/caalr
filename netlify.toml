@@ -1,9 +1,17 @@
 [build]
   command = "npm run build"
   publish = "dist"
+  # Skip builds triggered by git pushes and CMS saves so they no longer burn
+  # build minutes. `exit 0` tells Netlify "nothing to build." Build hooks
+  # bypass this entirely, so the "Publish Website" button is the only thing
+  # that actually deploys the site.
+  ignore = "exit 0"
 
 [build.environment]
   NODE_VERSION = "22"
+
+[functions]
+  directory = "netlify/functions"
 
 # Redirect /admin to the CMS entry point
 [[redirects]]

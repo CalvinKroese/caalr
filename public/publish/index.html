@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Publish the CAALR Website</title>
+    <style>
+      :root { --green: #3a7d44; --green-dark: #2f6537; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        background: #f5f3ee;
+        color: #2b2b2b;
+        padding: 1.5rem;
+      }
+      .card {
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        padding: 2.5rem 2rem;
+        max-width: 460px;
+        width: 100%;
+        text-align: center;
+      }
+      h1 { font-size: 1.5rem; margin: 0 0 0.5rem; }
+      p.lead { color: #555; margin: 0 0 1.75rem; line-height: 1.5; }
+      label { display: block; text-align: left; font-size: 0.9rem; color: #555; margin-bottom: 0.35rem; }
+      input[type="password"] {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin-bottom: 1.25rem;
+      }
+      button {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: #fff;
+        background: var(--green);
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      button:hover:not(:disabled) { background: var(--green-dark); }
+      button:disabled { opacity: 0.6; cursor: default; }
+      .status { margin-top: 1.25rem; font-size: 1rem; line-height: 1.5; min-height: 1.5rem; }
+      .status.ok { color: var(--green-dark); }
+      .status.err { color: #b00020; }
+      .hint { margin-top: 1.5rem; font-size: 0.8rem; color: #999; }
+      .hint a { color: #999; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Publish the CAALR Website</h1>
+      <p class="lead">
+        When you're happy with your changes, press the button below to put them
+        live. It takes about two minutes for the website to update.
+      </p>
+
+      <div id="key-row" hidden>
+        <label for="key">Password</label>
+        <input id="key" type="password" autocomplete="current-password" />
+      </div>
+
+      <button id="go" type="button">Publish Website</button>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+
+      <p class="hint"><a href="#" id="forget" hidden>Forget saved password</a></p>
+    </div>
+
+    <script>
+      const STORE_KEY = "caalr-publish-key";
+      const keyRow = document.getElementById("key-row");
+      const keyInput = document.getElementById("key");
+      const goBtn = document.getElementById("go");
+      const statusEl = document.getElementById("status");
+      const forget = document.getElementById("forget");
+
+      const saved = localStorage.getItem(STORE_KEY);
+      if (saved) {
+        keyInput.value = saved;
+        forget.hidden = false;
+      } else {
+        keyRow.hidden = false;
+      }
+
+      forget.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem(STORE_KEY);
+        location.reload();
+      });
+
+      function setStatus(msg, kind) {
+        statusEl.textContent = msg;
+        statusEl.className = "status" + (kind ? " " + kind : "");
+      }
+
+      goBtn.addEventListener("click", async () => {
+        const key = keyInput.value.trim();
+        goBtn.disabled = true;
+        setStatus("Publishing…");
+        try {
+          const url = "/.netlify/functions/publish?key=" + encodeURIComponent(key);
+          const res = await fetch(url, { method: "POST" });
+          const data = await res.json().catch(() => ({}));
+          if (res.ok) {
+            localStorage.setItem(STORE_KEY, key); // remember on this device
+            keyRow.hidden = true;
+            forget.hidden = false;
+            setStatus(data.message || "Publishing!", "ok");
+          } else {
+            setStatus(data.message || "Something went wrong. Please try again.", "err");
+            goBtn.disabled = false;
+          }
+        } catch {
+          setStatus("Could not reach the server. Please try again.", "err");
+          goBtn.disabled = false;
+        }
+      });
+    </script>
+  </body>
+</html>
