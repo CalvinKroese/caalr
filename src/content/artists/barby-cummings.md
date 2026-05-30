@@ -1,18 +1,23 @@
 ---
-name: "Barby Cummings"
+name: Barby Cummings
 mediums:
-  - "Wire Art"
-shortBio: "Barby Cummings is a Wire Art artist and member of CAALR."
-email: "barbedwiredesigns@yahoo.com"
+  - Wire Art
+shortBio: Barby Cummings is a Wire Art artist and member of CAALR.
+email: barbedwiredesigns@yahoo.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: "/uploads/people/artist-004.jpg"
+featuredImage: /uploads/people/artist-004.jpg
 photoIsTemp: true
 galleryImages: []
 isBoardMember: true
-boardRole: "At Large"
-status: "active"
+boardRole: At Large
+status: active
 ---
 
-Barby Cummings is a Wire Art artist and member of the Creative Arts Association of Lakewood Ranch.
+
+Barby Comins is an artisan specializing in wire-wrapped serving utensils, giftware, whimsical jewelry, and Judaica. She has been working with wire for over 20 years, creating pieces that blend functionality with artistic expression.
+
+ 
+
+Her artistic path began after college, following earlier work in acrylic painting exhibited throughout the Boston area. She received an Honorable Mention at the Marblehead Festival of the Arts, her first juried show
