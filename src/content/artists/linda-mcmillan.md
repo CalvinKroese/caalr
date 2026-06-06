@@ -8,8 +8,14 @@ website: ""
 instagram: ""
 facebook: ""
 featuredImage: /uploads/linda-mc-millan-headshot.jpeg
-photoIsTemp: true
-galleryImages: []
+photoIsTemp: false
+galleryImages:
+  - src: /uploads/linda-mc-millan-3.jpeg
+    caption: Artwork by Linda Mc Millan
+  - src: /uploads/linda-mc-mullan.jpeg
+    caption: Artwork by Linda Mc Millan
+  - src: /uploads/linda-mc-millan-1.jpeg
+    caption: Artwork by Linda Mc Millan
 isBoardMember: false
 boardRole: ""
 status: active
