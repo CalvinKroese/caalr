@@ -8,8 +8,14 @@ website: ""
 instagram: ""
 facebook: ""
 featuredImage: /uploads/aubrey-freeman-headshot.jpg
-photoIsTemp: true
-galleryImages: []
+photoIsTemp: false
+galleryImages:
+  - src: /uploads/aubrey-freeman-5.jpg
+    caption: artwork by Aubrey Freeman
+  - src: /uploads/aubrey-freeman-4.jpg
+    caption: Artwork by Aubrey Freeman
+  - src: /uploads/aubrey-freeman-3.jpg
+    caption: Artwork by Aubrey Freeman
 isBoardMember: false
 boardRole: ""
 status: active
