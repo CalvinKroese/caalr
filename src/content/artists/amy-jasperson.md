@@ -8,8 +8,10 @@ website: ""
 instagram: ""
 facebook: ""
 featuredImage: /uploads/people/show-008.jpg
-photoIsTemp: true
-galleryImages: []
+photoIsTemp: false
+galleryImages:
+  - src: /uploads/lauri-zelen-1.jpg
+    caption: Artwork by Laurie Zeelen
 isBoardMember: false
 boardRole: ""
 status: active
