@@ -8,8 +8,14 @@ website: ""
 instagram: ""
 facebook: ""
 featuredImage: /uploads/patty-notarianni-headshot.jpeg
-photoIsTemp: true
-galleryImages: []
+photoIsTemp: false
+galleryImages:
+  - src: /uploads/patti-notarianni-8.jpeg
+    caption: Artwork by Patty Notarianni
+  - src: /uploads/patty-notarianni-4.jpeg
+    caption: Artwork by Patty Notarianni
+  - src: /uploads/patti-notarianni-5.jpeg
+    caption: Artwork by Patty Notarianni
 isBoardMember: false
 boardRole: ""
 status: active
