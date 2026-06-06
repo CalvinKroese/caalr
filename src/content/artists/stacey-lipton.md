@@ -8,9 +8,14 @@ website: ""
 instagram: ""
 facebook: ""
 featuredImage: /uploads/stacey-lipton-headshot.jpg
-photoIsTemp: true
+photoIsTemp: false
 galleryImages:
+  - src: /uploads/stacey-lipton-7.jpeg
+    caption: Artwork by Stacey Lipton
+  - src: /uploads/stacey-lipton-8.jpeg
+    caption: Artwork by Stacey Lipton
   - src: /uploads/stacey-lipton-9.jpeg
+    caption: Artwork by Stacey Lipton
 isBoardMember: true
 boardRole: Vice President
 status: active
