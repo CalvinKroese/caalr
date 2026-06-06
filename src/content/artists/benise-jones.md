@@ -8,8 +8,10 @@ website: ""
 instagram: ""
 facebook: ""
 featuredImage: /uploads/people/artist-003.jpg
-photoIsTemp: true
-galleryImages: []
+photoIsTemp: false
+galleryImages:
+  - src: /uploads/benise-jones-1.jpeg
+    caption: Artwork by Benise Jones
 isBoardMember: true
 boardRole: Treasurer
 status: active
