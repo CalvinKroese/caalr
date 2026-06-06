@@ -10,10 +10,12 @@ facebook: ""
 featuredImage: /uploads/wilma-kroese-headshot-2.jpg
 photoIsTemp: false
 galleryImages:
-  - src: /uploads/wilma-kroese-10.jpeg
-  - src: /uploads/wilma-kroese-9.jpg
+  - src: /uploads/wilma-kroese-4.jpg
+    caption: Artwork by Wilma Kroese
+  - src: /uploads/wilma-kroese-2.jpg
+    caption: Artwork by Wilma Kroese
   - src: /uploads/wilma-kroese-8.jpg
-    caption: pottery by Wilma Kroese
+    caption: Artwork by Wilma Kroese
 isBoardMember: true
 boardRole: At Large
 status: active
