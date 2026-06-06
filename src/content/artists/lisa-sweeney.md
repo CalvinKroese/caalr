@@ -8,8 +8,14 @@ website: ""
 instagram: ""
 facebook: ""
 featuredImage: /uploads/lisa-sweeney-headshot.jpeg
-photoIsTemp: true
-galleryImages: []
+photoIsTemp: false
+galleryImages:
+  - src: /uploads/lisa-sweeney-2.jpeg
+    caption: Artwork by Lisa Sweeney
+  - src: /uploads/lisa-sweeney-5.jpeg
+    caption: Artwork by Lisa Sweeney
+  - src: /uploads/lisa-sweeney-3.jpeg
+    caption: Artwork by Lisa Sweeney
 isBoardMember: false
 boardRole: ""
 status: active
