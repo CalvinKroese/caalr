@@ -7,9 +7,11 @@ email: CarolRKrah@gmail.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/news/carol-krah.jpg
-photoIsTemp: true
-galleryImages: []
+featuredImage: /uploads/carol-krah-headshot.jpg
+photoIsTemp: false
+galleryImages:
+  - src: /uploads/carol-krah-3.jpeg
+    caption: Artwork by Carol Krah
 isBoardMember: true
 boardRole: President
 status: active
