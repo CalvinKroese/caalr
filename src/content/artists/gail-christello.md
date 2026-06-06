@@ -8,9 +8,14 @@ website: ""
 instagram: ""
 facebook: ""
 featuredImage: /uploads/gail-cristello-headshot.jpg
-photoIsTemp: true
+photoIsTemp: false
 galleryImages:
+  - src: /uploads/gail-cristello-1.jpeg
+    caption: Artwork by Gail Christello
+  - src: /uploads/gail-cristello-2.jpeg
+    caption: Artwork by Gail Christello
   - src: /uploads/gail-cristello-3.jpeg
+    caption: Artwork by Gail Christello
 isBoardMember: false
 boardRole: ""
 status: active
