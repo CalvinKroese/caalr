@@ -8,13 +8,19 @@ website: ""
 instagram: ""
 facebook: ""
 featuredImage: /uploads/sue-kerr-headshot.jpeg
-photoIsTemp: true
-galleryImages: []
+photoIsTemp: false
+galleryImages:
+  - src: /uploads/sue-kerr-7.jpeg
+    caption: Artwork by Susan Kerr
+  - src: /uploads/sue-kerr-6.jpeg
+    caption: Artwork by Susan Kerr
+  - src: /uploads/sue-kerr-5.jpeg
+    caption: Artwork by Susan Kerr
 isBoardMember: false
 boardRole: ""
 status: active
 ---
-susan kerr
+Susan Kerr
 
 I have spent my life making things with my hands. I studied
 
