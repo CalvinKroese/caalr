@@ -8,8 +8,14 @@ website: ""
 instagram: ""
 facebook: ""
 featuredImage: /uploads/mary-little-headshot.jpg
-photoIsTemp: true
-galleryImages: []
+photoIsTemp: false
+galleryImages:
+  - src: /uploads/mary-little-4.jpg
+    caption: Artwork by Mary Little
+  - src: /uploads/mary-little-3.jpg
+    caption: Artwork by Mary Little
+  - src: /uploads/mary-little-1.jpg
+    caption: Artwork by Mary Little
 isBoardMember: false
 boardRole: ""
 status: active
