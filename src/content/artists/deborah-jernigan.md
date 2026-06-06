@@ -9,7 +9,11 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/debra-jernigan-headshot.jpg
 photoIsTemp: false
-galleryImages: []
+galleryImages:
+  - src: /uploads/debra-jernigan-1.jpeg
+    caption: Artwork by Deborah Jernigan
+  - src: /uploads/debra-jernigan-2.jpeg
+    caption: Artwork by Deborah Jernigan
 isBoardMember: false
 boardRole: ""
 status: active
