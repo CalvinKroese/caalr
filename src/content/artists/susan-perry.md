@@ -8,19 +8,15 @@ website: ""
 instagram: ""
 facebook: ""
 featuredImage: /uploads/people/artist-002.jpg
-photoIsTemp: true
+photoIsTemp: false
 galleryImages: []
 isBoardMember: true
 boardRole: Secretary
 status: active
 ---
-Susan Perry
 
-Lemon Tree Jewelry
 
-Bradenton, Fl
-
-Teaching Art was my passion for 35 years.  I taught in Iowa, Nebraska, Illinois and Florida.
+	Teaching Art was my passion for 35 years.  I taught in Iowa, Nebraska, Illinois and Florida.
 
 In Florida I taught Middle School for 15 years.  
 
