@@ -7,7 +7,7 @@ email: JMB2015@verizon.net
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/people/artist-003.jpg
+featuredImage: /uploads/benise-joned-headshot.jpeg
 photoIsTemp: false
 galleryImages:
   - src: /uploads/benise-jones-1.jpeg
