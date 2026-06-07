@@ -7,7 +7,7 @@ email: barbedwiredesigns@yahoo.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/people/artist-004.jpg
+featuredImage: /uploads/barby-cummings-headshot.jpg
 photoIsTemp: false
 galleryImages:
   - src: /uploads/barby-cummings-2.jpg
