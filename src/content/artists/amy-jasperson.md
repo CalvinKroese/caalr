@@ -7,7 +7,7 @@ email: ""
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/people/show-008.jpg
+featuredImage: /uploads/laurie-zelen-headshot.jpg
 photoIsTemp: false
 galleryImages:
   - src: /uploads/lauri-zelen-1.jpg
