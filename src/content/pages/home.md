@@ -1,7 +1,7 @@
 ---
 heroTitle: Creative Arts Association of Lakewood Ranch
 heroText: A community of visual artists inspiring creativity in Lakewood Ranch since 2001
-heroImage: /uploads/lisa-sweeney-3.jpeg
+heroImage: /uploads/general-carol.jpg
 introText: >
   The Creative Arts Association of Lakewood Ranch (CAALR) is a not-for-profit
   organization committed to inspiring professional visual artists. We provide
