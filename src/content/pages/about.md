@@ -11,10 +11,10 @@ missionBody: >
 
 
   We also partner with local institutions for juried shows at Art Center Manatee and participate in ASID Shows in Sarasota.
-membershipBody: >
+membershipBody: >-
   **Artist Members** undergo a jury review process. There is a $25 entry fee for
   jury review. Artist members can display and sell their work at CAALR shows and
-  events.
+  events. Yearly member fee is $100.00
 
 
   **Supporting Members** have no dues and receive email updates about shows, events, and association news. Supporting members are welcome at all meetings and events.
