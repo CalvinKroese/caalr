@@ -1,9 +1,9 @@
 ---
-title: "Art Show to Feature Member's Diverse Styles of Pottery"
+title: Art Show to Feature Member's Diverse Styles of Pottery
 date: 2017-03-14
-sourceName: "Herald-Tribune"
-sourceUrl: "/uploads/news/wilma-kroese-article.pdf"
-featuredImage: "/uploads/news/wilma-kroese.jpg"
+sourceName: Herald-Tribune
+sourceUrl: /uploads/news/wilma-kroese-article.pdf
+featuredImage: /uploads/wilma-kroese-9.jpg
 featured: true
 ---
 
