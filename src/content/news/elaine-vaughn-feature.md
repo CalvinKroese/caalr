@@ -1,9 +1,9 @@
 ---
-title: "Creative Arts Association to Showcase and Sell Members' Work"
+title: Creative Arts Association to Showcase and Sell Members' Work
 date: 2017-10-27
-sourceName: "Herald-Tribune"
-sourceUrl: "/uploads/news/elaine-vaughn-article.pdf"
-featuredImage: "/uploads/news/elaine-vaughn.jpg"
+sourceName: Herald-Tribune
+sourceUrl: /uploads/news/elaine-vaughn-article.pdf
+featuredImage: ""
 featured: true
 ---
 
