@@ -1,10 +1,10 @@
 ---
-title: "Annual Fall Art Show and Sale"
-startDate: 2026-11-14
-endDate: 2026-11-14
-venueName: "Lakewood Ranch Town Hall"
-venueAddress: "8175 Lakewood Ranch Blvd, Lakewood Ranch, FL 34202"
-featuredImage: "/uploads/people/show-015.jpg"
+title: Annual Fall Art Show and Sale
+startDate: 2026-11-14T09:00:00.000-05:00
+endDate: 2026-11-14T16:00:00.000-05:00
+venueName: Lakewood Ranch Town Hall
+venueAddress: 8175 Lakewood Ranch Blvd, Lakewood Ranch, FL 34202
+featuredImage: ""
 galleryImages: []
 featured: true
 ---
