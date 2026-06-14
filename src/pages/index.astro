@@ -2,11 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import ArtistCard from '../components/ArtistCard.astro';
-import { getActiveArtists, getUpcomingEvents, getFeaturedGallery } from '../lib/content';
+import { getActiveArtists, getUpcomingEvents, getFeaturedGallery, getRandomGallery } from '../lib/content';
 
 const artists = await getActiveArtists();
 const upcomingEvents = await getUpcomingEvents();
 const featuredGallery = await getFeaturedGallery(6);
+// Rotating hero artwork — a fresh random set from the gallery on each publish.
+const heroArtwork = await getRandomGallery(8);
 ---
 <BaseLayout title="Welcome">
 
@@ -23,14 +25,13 @@ const featuredGallery = await getFeaturedGallery(6);
         </div>
       </div>
       <div class="split-hero__slideshow">
-        <img src="/uploads/gallery/gallery-001.jpg" alt="Stained Glass artwork" class="slideshow-img active" />
-        <img src="/uploads/gallery/gallery-004.jpg" alt="Watercolor artwork" class="slideshow-img" />
-        <img src="/uploads/gallery/gallery-010.jpg" alt="Raku Pottery" class="slideshow-img" />
-        <img src="/uploads/gallery/gallery-020.jpg" alt="Jewelry artwork" class="slideshow-img" />
-        <img src="/uploads/gallery/gallery-026.jpg" alt="Mixed Media artwork" class="slideshow-img" />
-        <img src="/uploads/gallery/gallery-032.jpg" alt="Fiberware artwork" class="slideshow-img" />
-        <img src="/uploads/gallery/gallery-049.jpg" alt="Resin Art" class="slideshow-img" />
-        <img src="/uploads/gallery/gallery-017.jpg" alt="Pottery" class="slideshow-img" />
+        {heroArtwork.map((item, i) => (
+          <img
+            src={item.data.image}
+            alt={item.data.alt}
+            class:list={['slideshow-img', { active: i === 0 }]}
+          />
+        ))}
       </div>
     </div>
   </section>

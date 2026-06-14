@@ -49,6 +49,18 @@ export async function getFeaturedGallery(limit = 6) {
     .slice(0, limit);
 }
 
+// Returns a random selection of gallery items. Runs at build time, so the
+// set reshuffles on each publish. Skips items whose image is missing a path.
+export async function getRandomGallery(limit = 8) {
+  const gallery = (await getCollection('gallery')).filter((g) => g.data.image);
+  const arr = [...gallery];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr.slice(0, limit);
+}
+
 export async function getNewsItems() {
   const news = await getCollection('news');
   return news.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
