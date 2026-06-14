@@ -9,5 +9,13 @@
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0/dist/decap-cms.js"></script>
+  <script>
+    // A styled, in-browser preview pane. Renders live as you type — no Netlify
+    // build, no GitHub commit, no deploy. Pulls in the real site styles so the
+    // preview resembles the published pages.
+    CMS.registerPreviewStyle('/admin/preview.css');
+  </script>
+  <!-- Per-collection preview templates that mirror the real page layouts -->
+  <script src="/admin/preview-templates.js"></script>
 </body>
 </html>
