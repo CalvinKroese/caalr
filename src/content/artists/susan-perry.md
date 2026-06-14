@@ -7,8 +7,8 @@ email: perrysfl50@gmail.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/people/artist-002.jpg
-photoIsTemp: false
+featuredImage: /uploads/artists/placeholder.svg
+photoIsTemp: true
 galleryImages: []
 isBoardMember: true
 boardRole: Secretary
