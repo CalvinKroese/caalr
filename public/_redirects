@@ -6,3 +6,9 @@
 /about-us.html   /about/         301
 /resources.html  /about/         301
 /in-the-news.html /news/         301
+
+# Artist slug corrections (old file names kept the original URL)
+/artists/amy-jasperson      /artists/laurie-zelen/   301
+/artists/amy-jasperson/     /artists/laurie-zelen/   301
+/artists/nancy-opresnick    /artists/susan-kerr/     301
+/artists/nancy-opresnick/   /artists/susan-kerr/     301

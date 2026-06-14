@@ -34,7 +34,6 @@
       var data = this.props.entry.get('data').toJS();
       var g = this.props.getAsset;
       var mediums = toArr(data.mediums);
-      var gallery = toArr(data.galleryImages);
       return h('section', { className: 'section' },
         h('div', { className: 'container artist-profile' },
           h('div', { className: 'artist-profile__header' },
@@ -57,14 +56,11 @@
             )
           ),
           h('div', { className: 'artist-profile__bio prose' }, this.props.widgetFor('body')),
-          gallery.length ? h('div', { className: 'artist-profile__gallery' },
+          h('div', { className: 'artist-profile__gallery' },
             h('h2', {}, 'Artwork by ' + (data.name || '')),
-            h('div', { className: 'grid grid--3' },
-              gallery.map(function (it, i) {
-                return mkImg(g, it.src, 'card__image', it.caption || 'Artwork', { borderRadius: 'var(--radius-card)' });
-              })
-            )
-          ) : null
+            h('p', { className: 'text-muted' },
+              'Artwork shows here from the Gallery — add a photo in the Gallery section and set its “Artist” to this person.')
+          )
         )
       );
     }

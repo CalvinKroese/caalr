@@ -13,35 +13,21 @@ export async function getStaticPaths() {
 
 const { artist } = Astro.props;
 const { Content } = await artist.render();
-const { name, mediums, shortBio, email, website, instagram, facebook, featuredImage, galleryImages, isBoardMember, boardRole, photoIsTemp } = artist.data;
+const { name, mediums, shortBio, email, website, instagram, facebook, featuredImage, isBoardMember, boardRole, photoIsTemp } = artist.data;
 
 // Get the artist's slug (filename without .md)
 const artistSlug = artist.id.replace(/\.md$/, '');
 
-// Pull images from the artist's own galleryImages field
-const ownImages = galleryImages.map((img, i) => ({
-  title: img.caption || `${name} artwork ${i + 1}`,
-  image: img.src,
-  alt: img.caption || `Artwork by ${name}`,
-}));
-
-// Also pull any gallery collection items tagged with this artist's slug
+// Artwork comes solely from the Gallery — any gallery item tagged with this
+// artist's slug shows on their page.
 const allGallery = await getCollection('gallery');
-const galleryMatches = allGallery
+const combinedGallery = allGallery
   .filter((g) => g.data.artistSlug === artistSlug)
   .map((g) => ({
     title: g.data.title,
     image: g.data.image,
     alt: g.data.alt,
   }));
-
-// Combine both sources, deduplicate by image path
-const seenImages = new Set<string>();
-const combinedGallery = [...ownImages, ...galleryMatches].filter((img) => {
-  if (seenImages.has(img.image)) return false;
-  seenImages.add(img.image);
-  return true;
-});
 ---
 <BaseLayout title={name} description={`${shortBio} — CAALR artist member.`}>
   <section class="section">
