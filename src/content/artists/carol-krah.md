@@ -9,9 +9,7 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/carol-krah-headshot.jpg
 photoIsTemp: false
-isBoardMember: true
 boardRole: President
-status: active
 ---
 
 

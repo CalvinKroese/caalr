@@ -12,9 +12,8 @@ const artists = defineCollection({
     facebook: z.string().optional().default(''),
     featuredImage: z.string(),
     photoIsTemp: z.boolean().default(false),
-    isBoardMember: z.boolean().default(false),
+    // A non-empty boardRole means this person is on the board.
     boardRole: z.string().optional().default(''),
-    status: z.enum(['active', 'alumni']).default('active'),
   }),
 });
 

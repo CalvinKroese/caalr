@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
 const { artist } = Astro.props;
 const { Content } = await artist.render();
-const { name, mediums, shortBio, email, website, instagram, facebook, featuredImage, isBoardMember, boardRole, photoIsTemp } = artist.data;
+const { name, mediums, shortBio, email, website, instagram, facebook, featuredImage, boardRole, photoIsTemp } = artist.data;
 
 // Some artists have no long biography yet — fall back to their short bio so the
 // page never shows a blank section.
@@ -54,7 +54,7 @@ const combinedGallery = allGallery
           <div class="artist-profile__mediums">
             {mediums.map((m) => <span class="badge">{m}</span>)}
           </div>
-          {isBoardMember && boardRole && (
+          {boardRole && (
             <p class="text-muted">CAALR Board — {boardRole}</p>
           )}
           <div class="artist-profile__contact">

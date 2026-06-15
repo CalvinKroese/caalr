@@ -9,9 +9,7 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/benise-joned-headshot.jpeg
 photoIsTemp: false
-isBoardMember: true
 boardRole: Treasurer
-status: active
 ---
 
 

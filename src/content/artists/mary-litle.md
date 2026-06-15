@@ -9,9 +9,7 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/mary-little-headshot.jpg
 photoIsTemp: false
-isBoardMember: false
 boardRole: ""
-status: active
 ---
 ARTIST STATEMENT
 

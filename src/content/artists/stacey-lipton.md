@@ -9,9 +9,7 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/stacey-lipton-headshot.jpg
 photoIsTemp: false
-isBoardMember: true
 boardRole: Vice President
-status: active
 ---
 
 

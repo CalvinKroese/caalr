@@ -9,9 +9,7 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/debra-jernigan-headshot.jpg
 photoIsTemp: false
-isBoardMember: false
 boardRole: ""
-status: active
 ---
 
 

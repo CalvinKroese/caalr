@@ -9,9 +9,7 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/sue-kerr-headshot.jpeg
 photoIsTemp: false
-isBoardMember: false
 boardRole: ""
-status: active
 ---
 Susan Kerr
 

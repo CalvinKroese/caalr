@@ -19,12 +19,9 @@ const storyTitle = home.storyTitle || 'From a Park to a Community';
 const storyParagraphs = paragraphs(home.introText);
 const storyImages: string[] = Array.isArray(home.storyImages) ? home.storyImages : [];
 
-// Hero slideshow: the owner's curated photo selection. If they leave it empty,
-// fall back to a random set from the gallery so the area is never blank.
-const heroImages: { image: string; alt: string }[] =
-  Array.isArray(home.heroImages) && home.heroImages.length
-    ? home.heroImages.map((src: string) => ({ image: src, alt: 'Artwork by a CAALR member' }))
-    : (await getRandomGallery(8)).map((item) => ({ image: item.data.image, alt: item.data.alt }));
+// Hero slideshow: a random set of artwork drawn from the Gallery, reshuffled on
+// each publish. (Add gallery artwork and it can appear here automatically.)
+const heroImages = (await getRandomGallery(8)).map((item) => ({ image: item.data.image, alt: item.data.alt }));
 ---
 <BaseLayout title="Welcome">
 

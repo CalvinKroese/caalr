@@ -9,9 +9,7 @@ instagram: ""
 facebook: ""
 featuredImage: "/uploads/artists/placeholder.svg"
 photoIsTemp: true
-isBoardMember: true
 boardRole: "At Large"
-status: "active"
 ---
 
 Elaine Vaughn is a Jewelry artist and member of the Creative Arts Association of Lakewood Ranch.

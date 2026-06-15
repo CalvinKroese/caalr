@@ -9,7 +9,5 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/lisa-sweeney-headshot.jpeg
 photoIsTemp: false
-isBoardMember: false
 boardRole: ""
-status: active
 ---

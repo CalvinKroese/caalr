@@ -40,9 +40,7 @@ collections:
       - { label: "Photo is Temporary?", name: "photoIsTemp", widget: "boolean", default: false, hint: "Check if this is a placeholder photo — shows 'Photo Coming Soon' on the site" }
       # Artwork is managed entirely in the Gallery — add a photo there and set its
       # "Artist" field to this person, and it appears on their page automatically.
-      - { label: "Board Member?", name: "isBoardMember", widget: "boolean", default: false }
-      - { label: "Board Role", name: "boardRole", widget: "string", required: false, hint: "e.g. President, Vice President, At Large" }
-      - { label: "Status", name: "status", widget: "select", options: ["active", "alumni"], default: "active", hint: "Alumni are kept in the system but hidden from the website" }
+      - { label: "Board Role", name: "boardRole", widget: "string", required: false, hint: "Only fill in if this person is on the board (e.g. President, Vice President, At Large). Leave blank otherwise — that's what makes someone a board member." }
       - { label: "Full Biography", name: "body", widget: "markdown", required: false, hint: "The longer bio that appears on the artist's own page" }
 
   - name: "events"
@@ -110,7 +108,7 @@ collections:
   - name: "pages"
     label: "Pages"
     editor:
-      preview: true
+      preview: false
     files:
       - label: "Home Page"
         name: "home"
@@ -119,11 +117,7 @@ collections:
           - { label: "Welcome line (small text above the title)", name: "heroEyebrow", widget: "string" }
           - { label: "Main Title", name: "heroTitle", widget: "string" }
           - { label: "Intro sentence (under the title)", name: "heroText", widget: "text" }
-          - label: "Homepage Slideshow Photos"
-            name: "heroImages"
-            widget: "list"
-            hint: "Photos that rotate in the large area at the top of the home page. Pick a few favorites from your artwork."
-            field: { label: "Photo", name: "image", widget: "image" }
+          # The top slideshow auto-rotates a random set of Gallery artwork — no field to manage.
           - { label: "Our Story — Heading", name: "storyTitle", widget: "string" }
           - { label: "Our Story — Text", name: "introText", widget: "markdown" }
           - label: "Our Story — Photos"
@@ -188,7 +182,7 @@ collections:
   - name: "settings"
     label: "Site Settings"
     editor:
-      preview: true
+      preview: false
     files:
       - label: "General"
         name: "site"

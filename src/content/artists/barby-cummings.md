@@ -9,9 +9,7 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/barby-cummings-headshot.jpg
 photoIsTemp: false
-isBoardMember: true
 boardRole: At Large
-status: active
 ---
 
 

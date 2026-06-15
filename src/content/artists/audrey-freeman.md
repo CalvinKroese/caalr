@@ -9,9 +9,7 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/aubrey-freeman-headshot.jpg
 photoIsTemp: false
-isBoardMember: false
 boardRole: ""
-status: active
 ---
 At Seashell Decor and More, I create unique coastal décor using real seashells and beach-inspired elements in every design. My love for shelling began in childhood during trips with my grandparents to the Sarasota–Bradenton area. After moving here from Chicagoland more than ten years ago, collecting shells and creating coastal pieces grew into a true passion.
 

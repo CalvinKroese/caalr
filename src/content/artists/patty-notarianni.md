@@ -9,9 +9,7 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/patty-notarianni-headshot.jpeg
 photoIsTemp: false
-isBoardMember: false
 boardRole: ""
-status: active
 ---
 
 

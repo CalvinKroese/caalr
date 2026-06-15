@@ -24,7 +24,7 @@ const BOARD_ROLE_ORDER = ['President', 'Vice President', 'Secretary', 'Treasurer
 export async function getBoardMembers() {
   const artists = await getCollection('artists');
   return artists
-    .filter((a) => a.data.isBoardMember && a.data.status === 'active')
+    .filter((a) => (a.data.boardRole || '').trim() !== '')
     .map((a) => ({ name: a.data.name, role: a.data.boardRole || '', slug: a.id.replace(/\.md$/, '') }))
     .sort((x, y) => {
       const xr = BOARD_ROLE_ORDER.indexOf(x.role); const yr = BOARD_ROLE_ORDER.indexOf(y.role);
@@ -35,9 +35,7 @@ export async function getBoardMembers() {
 
 export async function getActiveArtists() {
   const artists = await getCollection('artists');
-  return artists
-    .filter((a) => a.data.status === 'active')
-    .sort((a, b) => a.data.name.localeCompare(b.data.name));
+  return artists.sort((a, b) => a.data.name.localeCompare(b.data.name));
 }
 
 export async function getAllArtists() {

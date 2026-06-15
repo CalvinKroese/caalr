@@ -9,9 +9,7 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/artists/placeholder.svg
 photoIsTemp: true
-isBoardMember: true
 boardRole: Secretary
-status: active
 ---
 
 Teaching Art was my passion for 35 years. I taught in Iowa, Nebraska, Illinois and Florida. In Florida I taught Middle School for 15 years.

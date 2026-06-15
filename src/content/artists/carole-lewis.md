@@ -9,9 +9,7 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/carole-lewis-headshot.jpeg
 photoIsTemp: false
-isBoardMember: false
 boardRole: ""
-status: active
 ---
 
 Carole Lewis is a Mixed Media artist and member of the Creative Arts Association of Lakewood Ranch.

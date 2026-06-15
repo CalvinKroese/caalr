@@ -9,9 +9,7 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/wilma-kroese-headshot-2.jpg
 photoIsTemp: false
-isBoardMember: true
 boardRole: At Large
-status: active
 ---
 As a native of the Netherlands, born and raised in Amsterdam, I moved to Bradenton with my family in 2005.
 

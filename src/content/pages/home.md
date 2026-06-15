@@ -2,15 +2,6 @@
 heroEyebrow: welcome to
 heroTitle: Creative Arts Association of Lakewood Ranch
 heroText: A vibrant community of visual artists sharing their passion through exhibitions, education, and friendship since 2001
-heroImages:
-  - /uploads/aubrey-freeman-5.jpg
-  - /uploads/benise-jones-1.jpeg
-  - /uploads/carol-krah-3.jpeg
-  - /uploads/carol-krah-1.jpeg
-  - /uploads/carol-krah-2.jpeg
-  - /uploads/stacey-lipton-7.jpeg
-  - /uploads/stacey-lipton-9.jpeg
-  - /uploads/stacey-lipton-8.jpeg
 storyTitle: From a Park to a Community
 introText: >
   In 2001, a handful of Lakewood Ranch artists began gathering in a local park — easels and sketchbooks in hand. From those humble beginnings, CAALR grew to include approximately 20 working artist members and over 50 supporting members.

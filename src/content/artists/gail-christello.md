@@ -9,9 +9,7 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/gail-cristello-headshot.jpg
 photoIsTemp: false
-isBoardMember: false
 boardRole: ""
-status: active
 ---
 I have had a creative spirit my whole life. Growing up in a family of artists has given me a curious nature of what I could create.
 
