@@ -108,7 +108,7 @@ collections:
   - name: "pages"
     label: "Pages"
     editor:
-      preview: false
+      preview: true
     files:
       - label: "Home Page"
         name: "home"

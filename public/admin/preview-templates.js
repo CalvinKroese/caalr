@@ -129,8 +129,54 @@
     }
   });
 
+  // Pages collection holds three shapes (Home, About, section headers); branch on
+  // which fields are present so each gets a readable preview.
+  var PagesPreview = createClass({
+    render: function () {
+      var data = this.props.entry.get('data').toJS();
+      var w = this.props.widgetFor;
+      // About page
+      if (data.missionBody !== undefined || data.membershipBody !== undefined) {
+        return h('section', { className: 'section' },
+          h('div', { className: 'container' },
+            data.heroScript ? h('p', { className: 'text-muted', style: { fontStyle: 'italic' } }, data.heroScript) : null,
+            h('h1', {}, data.heroTitle || 'About'),
+            data.heroSubtitle ? h('p', { className: 'text-muted' }, data.heroSubtitle) : null,
+            h('h2', { style: { marginTop: 'var(--space-lg)' } }, data.missionTitle || 'Our Mission'),
+            h('div', { className: 'prose' }, w('missionBody')),
+            h('h2', { style: { marginTop: 'var(--space-lg)' } }, data.membershipTitle || 'Membership'),
+            h('div', { className: 'prose' }, w('membershipBody'))
+          )
+        );
+      }
+      // Home page
+      if (data.heroEyebrow !== undefined || data.storyTitle !== undefined) {
+        return h('section', { className: 'section' },
+          h('div', { className: 'container' },
+            data.heroEyebrow ? h('p', { className: 'text-muted', style: { fontStyle: 'italic' } }, data.heroEyebrow) : null,
+            h('h1', {}, data.heroTitle || ''),
+            data.heroText ? h('p', { className: 'text-muted' }, data.heroText) : null,
+            h('p', { className: 'text-muted', style: { fontStyle: 'italic', marginTop: 'var(--space-md)' } }, '(The top photo slideshow rotates automatically from your Gallery.)'),
+            h('h2', { style: { marginTop: 'var(--space-lg)' } }, data.storyTitle || 'Our Story'),
+            h('div', { className: 'prose' }, w('introText'))
+          )
+        );
+      }
+      // Section-header pages (Artists / Events / News / Gallery)
+      return h('section', { className: 'section' },
+        h('div', { className: 'container', style: { textAlign: 'center' } },
+          data.heroScript ? h('p', { className: 'text-muted', style: { fontStyle: 'italic' } }, data.heroScript) : null,
+          h('h1', {}, data.heroTitle || ''),
+          data.heroSubtitle ? h('p', { className: 'text-muted' }, data.heroSubtitle) : null,
+          h('p', { className: 'text-muted', style: { marginTop: 'var(--space-md)' } }, 'This is the banner at the top of the page; the rest of the page is generated automatically.')
+        )
+      );
+    }
+  });
+
   CMS.registerPreviewTemplate('artists', ArtistPreview);
   CMS.registerPreviewTemplate('events', EventPreview);
   CMS.registerPreviewTemplate('news', NewsPreview);
   CMS.registerPreviewTemplate('gallery', GalleryPreview);
+  CMS.registerPreviewTemplate('pages', PagesPreview);
 })();
