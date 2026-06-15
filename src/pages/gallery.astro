@@ -2,9 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import GalleryGrid from '../components/GalleryGrid.astro';
-import { getGalleryItems } from '../lib/content';
+import { getGalleryItems, loadFrontmatter } from '../lib/content';
 
 const gallery = await getGalleryItems();
+const page = loadFrontmatter('src/content/pages/gallery.md');
 const images = gallery.map((item) => ({
   title: item.data.title,
   image: item.data.image,
@@ -13,7 +14,7 @@ const images = gallery.map((item) => ({
 }));
 ---
 <BaseLayout title="Gallery" description="Browse artwork by members of the Creative Arts Association of Lakewood Ranch.">
-  <Hero title="Gallery" subtitle="Artwork by CAALR members" scriptLabel="from the studio" compact />
+  <Hero title={page.heroTitle || 'Gallery'} subtitle={page.heroSubtitle || 'Artwork by CAALR members'} scriptLabel={page.heroScript || 'from the studio'} compact />
 
   <section class="section">
     <div class="container">

@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
-import { getNewsItems, formatDate } from '../../lib/content';
+import { getNewsItems, formatDate, loadFrontmatter } from '../../lib/content';
 
 const news = await getNewsItems();
+const page = loadFrontmatter('src/content/pages/news.md');
 ---
 <BaseLayout title="News & Highlights" description="News, awards, and media coverage featuring CAALR artists.">
-  <Hero title="News & Highlights" subtitle="Awards, features, and accomplishments by our members" scriptLabel="in the spotlight" compact />
+  <Hero title={page.heroTitle || 'News & Highlights'} subtitle={page.heroSubtitle || 'Awards, features, and accomplishments by our members'} scriptLabel={page.heroScript || 'in the spotlight'} compact />
 
   <section class="section">
     <div class="container">

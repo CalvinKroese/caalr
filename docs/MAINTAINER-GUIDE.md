@@ -48,13 +48,13 @@ You will see the content editor with sections on the left: Artists, Shows & Even
    - **Short Bio**: One or two sentences for the Artists page card
    - **Email**: Optional — the artist's contact email
    - **Profile Photo**: Click to upload a photo of the artist
-   - **Artwork Photos**: Click "Add Artwork Photos" for each piece — upload the image and optionally add a caption
-   - **Board Member?**: Toggle on if they're on the board
-   - **Display Order**: Lower numbers appear first (use 10, 20, 30, etc.)
+   - **Board Member?** / **Board Role**: Toggle on and set the role if they're on the board
    - **Status**: Leave as "active"
-4. Write a longer biography in the text area at the bottom
+4. Write a longer biography in the text area at the bottom (if left blank, the short bio is shown)
 5. Click **Publish** (top right) to **save** the new artist
 6. When you're finished editing, **publish the website** to make it live (see the two-step process at the top of this guide)
+
+To show this artist's **artwork**, add it in the **Gallery** section and set each photo's **Artist** field to this person — it appears on their page automatically (artists no longer have their own artwork-upload field).
 
 ## Editing an Existing Artist
 
@@ -126,9 +126,30 @@ This keeps their record in the system but hides them from the website. Do NOT de
 3. Click **Publish**
 
 ### Board of Directors
-1. Click **Site Settings** → **Board of Directors**
-2. Add, edit, or remove board members
+The board list on the About page is built **automatically from the artists**. To change it:
+1. Click **Artists** → open the person's profile
+2. Toggle **Board Member?** on/off, and set their **Board Role** (e.g. President)
 3. Click **Publish**
+
+There is no separate board list to maintain — whoever is marked as a board member (with a role) appears on the About page, ordered President → Vice President → Secretary → Treasurer, then the rest.
+
+## What You Can Edit on Each Page
+
+Almost all visible text and photos are now editable from the CMS:
+- **Home Page** (Pages → Home Page): the welcome line, main title, intro sentence, the **slideshow photos**, and the "Our Story" heading, text, and photos.
+- **About Page** (Pages → About Page): the page title/subtitle, banner photos, mission, membership, the mission & sidebar photos, and resource links.
+- **Page headers** (Pages → Artists/Events/News/Gallery Page): the title + subtitle at the top of each of those sections.
+- **Site Settings → General**: the logo, footer tagline, contact email, and footer text.
+
+## Things That Happen Automatically (you don't control these by hand)
+
+- **Artists** are listed **alphabetically**; the homepage shows the first 8.
+- Setting an artist's **Status to "alumni"** removes them from the public site.
+- **Events** become "Past" automatically once their end date passes; the homepage banner shows the soonest upcoming event (or one you mark **Feature on Homepage**).
+- **Gallery** order is featured-first, then newest. Mark **Feature on Homepage** to include a piece in the homepage preview.
+- **News** is newest-first, with **Featured** items pinned to the top.
+- The footer **copyright year** updates itself.
+- Artwork on an **artist's page** comes from **Gallery** items whose **Artist** field is set to that person — add artwork in the Gallery, not on the artist.
 
 ## Uploading and Managing Images
 

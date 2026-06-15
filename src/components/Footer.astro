@@ -12,13 +12,13 @@ const year = new Date().getFullYear();
   <div class="container site-footer__inner">
     <div class="site-footer__col">
       <img
-        src="/uploads/logo/caalr-logo-transparent.png"
-        alt="CAALR logo"
+        src={site.logo || '/uploads/logo/caalr-logo-transparent.png'}
+        alt={`${site.siteName} logo`}
         class="site-footer__logo"
         width="150"
         height="100"
       />
-      <p class="site-footer__tagline script">create. connect. inspire.</p>
+      <p class="site-footer__tagline script">{site.tagline || 'create. connect. inspire.'}</p>
       <p class="site-footer__text">{site.footerText}</p>
     </div>
 

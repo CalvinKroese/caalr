@@ -3,13 +3,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import EventCard from '../../components/EventCard.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
-import { getUpcomingEvents, getPastEvents } from '../../lib/content';
+import { getUpcomingEvents, getPastEvents, loadFrontmatter } from '../../lib/content';
 
 const upcoming = await getUpcomingEvents();
 const past = await getPastEvents();
+const page = loadFrontmatter('src/content/pages/events.md');
 ---
 <BaseLayout title="Shows & Events" description="Upcoming and past art shows and events by the Creative Arts Association of Lakewood Ranch.">
-  <Hero title="Shows & Events" subtitle="Art shows, exhibitions, and community events" scriptLabel="join us at" compact />
+  <Hero title={page.heroTitle || 'Shows & Events'} subtitle={page.heroSubtitle || 'Art shows, exhibitions, and community events'} scriptLabel={page.heroScript || 'join us at'} compact />
 
   <section class="section">
     <div class="container">

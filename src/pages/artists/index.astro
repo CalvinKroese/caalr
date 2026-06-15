@@ -2,12 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import ArtistCard from '../../components/ArtistCard.astro';
-import { getActiveArtists } from '../../lib/content';
+import { getActiveArtists, loadFrontmatter } from '../../lib/content';
 
 const artists = await getActiveArtists();
+const page = loadFrontmatter('src/content/pages/artists.md');
 ---
 <BaseLayout title="Artists" description="Meet the artists of the Creative Arts Association of Lakewood Ranch.">
-  <Hero title="Our Artists" subtitle="Meet the creative talent behind CAALR" scriptLabel="meet" compact />
+  <Hero title={page.heroTitle || 'Our Artists'} subtitle={page.heroSubtitle || 'Meet the creative talent behind CAALR'} scriptLabel={page.heroScript || 'meet'} compact />
 
   <section class="section">
     <div class="container">

@@ -1,5 +1,7 @@
 ---
+import { readFileSync } from 'node:fs';
 const currentPath = Astro.url.pathname;
+const site = JSON.parse(readFileSync('src/content/settings/site.json', 'utf-8'));
 
 const navItems = [
   { label: 'home', href: '/' },
@@ -15,8 +17,8 @@ const navItems = [
   <div class="container site-header__inner">
     <a href="/" class="site-header__logo" aria-label="CAALR Home">
       <img
-        src="/uploads/logo/caalr-logo-transparent.png"
-        alt="Creative Arts Association logo"
+        src={site.logo || '/uploads/logo/caalr-logo-transparent.png'}
+        alt={`${site.siteName} logo`}
         class="site-header__logo-img"
         width="120"
         height="80"

@@ -9,15 +9,19 @@ const board = await getBoardMembers();
 const meetings = JSON.parse(readFileSync('src/content/settings/meetings.json', 'utf-8'));
 ---
 <BaseLayout title="About" description="Learn about the Creative Arts Association of Lakewood Ranch — our mission, board, meetings, and membership.">
-  <Hero title="About CAALR" subtitle="Our mission, our people, our community" scriptLabel="get to know us" compact />
+  <Hero
+    title={about.heroTitle || 'About CAALR'}
+    subtitle={about.heroSubtitle || 'Our mission, our people, our community'}
+    scriptLabel={about.heroScript || 'get to know us'}
+    compact
+  />
 
   <!-- Photo banner showing community -->
   <section class="about-photos">
     <div class="about-photos__grid">
-      <img src="/uploads/people/show-015.jpg" alt="CAALR members enjoying an art show" loading="lazy" />
-      <img src="/uploads/people/show-012.jpg" alt="Guests browsing artwork" loading="lazy" />
-      <img src="/uploads/people/show-013.jpg" alt="Artist with stained glass work" loading="lazy" />
-      <img src="/uploads/people/show-014.jpg" alt="Community at art exhibition" loading="lazy" />
+      {(about.bannerPhotos?.length ? about.bannerPhotos : ['/uploads/people/show-015.jpg', '/uploads/people/show-012.jpg', '/uploads/people/show-013.jpg', '/uploads/people/show-014.jpg']).map((src: string) => (
+        <img src={src} alt="CAALR community at an art show" loading="lazy" />
+      ))}
     </div>
   </section>
 
@@ -29,7 +33,7 @@ const meetings = JSON.parse(readFileSync('src/content/settings/meetings.json', '
 
         <!-- Inline photo break -->
         <div class="about-photo-break">
-          <img src="/uploads/people/show-006.jpg" alt="Artist at gallery exhibition" loading="lazy" />
+          <img src={about.missionPhoto || '/uploads/people/show-006.jpg'} alt="A CAALR exhibition" loading="lazy" />
         </div>
 
         <h2>{about.membershipTitle || 'Membership'}</h2>
@@ -87,7 +91,7 @@ const meetings = JSON.parse(readFileSync('src/content/settings/meetings.json', '
 
         <!-- Photo in sidebar -->
         <div class="about-card" style="padding: 0; overflow: hidden;">
-          <img src="/uploads/people/show-007.jpg" alt="Art displayed at a CAALR exhibition" style="width: 100%; height: auto; display: block;" loading="lazy" />
+          <img src={about.sidebarPhoto || '/uploads/people/show-007.jpg'} alt="Art displayed at a CAALR exhibition" style="width: 100%; height: auto; display: block;" loading="lazy" />
         </div>
 
         {about.resources && about.resources.length > 0 && (

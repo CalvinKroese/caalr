@@ -135,9 +135,20 @@ collections:
         name: "about"
         file: "src/content/pages/about.md"
         fields:
+          - { label: "Hero Title (top of page)", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "string" }
+          - { label: "Hero Script Label (small text above the title)", name: "heroScript", widget: "string" }
+          - label: "Banner Photos (row under the title)"
+            name: "bannerPhotos"
+            widget: "list"
+            hint: "Photos shown in the strip beneath the page title."
+            field: { label: "Photo", name: "image", widget: "image" }
           - { label: "Mission Title", name: "missionTitle", widget: "string" }
           - { label: "Mission Text", name: "missionBody", widget: "markdown" }
+          - { label: "Mission Photo", name: "missionPhoto", widget: "image", required: false }
+          - { label: "Membership Title", name: "membershipTitle", widget: "string" }
           - { label: "Membership Info", name: "membershipBody", widget: "markdown" }
+          - { label: "Sidebar Photo", name: "sidebarPhoto", widget: "image", required: false }
           - label: "Resource Links"
             name: "resources"
             widget: "list"
@@ -145,6 +156,34 @@ collections:
             fields:
               - { label: "Name", name: "label", widget: "string" }
               - { label: "Website URL", name: "url", widget: "string" }
+      - label: "Artists Page (header)"
+        name: "artists_page"
+        file: "src/content/pages/artists.md"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "string" }
+          - { label: "Hero Script Label", name: "heroScript", widget: "string" }
+      - label: "Events Page (header)"
+        name: "events_page"
+        file: "src/content/pages/events.md"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "string" }
+          - { label: "Hero Script Label", name: "heroScript", widget: "string" }
+      - label: "News Page (header)"
+        name: "news_page"
+        file: "src/content/pages/news.md"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "string" }
+          - { label: "Hero Script Label", name: "heroScript", widget: "string" }
+      - label: "Gallery Page (header)"
+        name: "gallery_page"
+        file: "src/content/pages/gallery.md"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "string" }
+          - { label: "Hero Script Label", name: "heroScript", widget: "string" }
 
   - name: "settings"
     label: "Site Settings"
@@ -156,7 +195,8 @@ collections:
         file: "src/content/settings/site.json"
         fields:
           - { label: "Site Name", name: "siteName", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "image", hint: "Shown in the header and footer." }
+          - { label: "Footer Tagline", name: "tagline", widget: "string", hint: "Short phrase under the footer logo, e.g. create. connect. inspire." }
           - { label: "Contact Email", name: "contactEmail", widget: "string" }
           - { label: "Footer Text", name: "footerText", widget: "text" }
       # Board of Directors is derived from artist profiles — set "Board Member?"
