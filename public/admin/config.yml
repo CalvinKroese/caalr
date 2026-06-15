@@ -116,10 +116,21 @@ collections:
         name: "home"
         file: "src/content/pages/home.md"
         fields:
-          - { label: "Hero Title", name: "heroTitle", widget: "string" }
-          - { label: "Hero Text", name: "heroText", widget: "text" }
-          - { label: "Hero Image", name: "heroImage", widget: "image" }
-          - { label: "Welcome Text", name: "introText", widget: "markdown" }
+          - { label: "Welcome line (small text above the title)", name: "heroEyebrow", widget: "string" }
+          - { label: "Main Title", name: "heroTitle", widget: "string" }
+          - { label: "Intro sentence (under the title)", name: "heroText", widget: "text" }
+          - label: "Homepage Slideshow Photos"
+            name: "heroImages"
+            widget: "list"
+            hint: "Photos that rotate in the large area at the top of the home page. Pick a few favorites from your artwork."
+            field: { label: "Photo", name: "image", widget: "image" }
+          - { label: "Our Story — Heading", name: "storyTitle", widget: "string" }
+          - { label: "Our Story — Text", name: "introText", widget: "markdown" }
+          - label: "Our Story — Photos"
+            name: "storyImages"
+            widget: "list"
+            hint: "Photos that rotate beside the Our Story text (e.g. community / art-show photos)."
+            field: { label: "Photo", name: "image", widget: "image" }
       - label: "About Page"
         name: "about"
         file: "src/content/pages/about.md"

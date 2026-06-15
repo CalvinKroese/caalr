@@ -3,12 +3,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import ArtistCard from '../components/ArtistCard.astro';
 import { getActiveArtists, getUpcomingEvents, getFeaturedGallery, getRandomGallery } from '../lib/content';
+import { readFileSync } from 'node:fs';
+import yaml from 'js-yaml';
 
 const artists = await getActiveArtists();
 const upcomingEvents = await getUpcomingEvents();
 const featuredGallery = await getFeaturedGallery(6);
-// Rotating hero artwork — a fresh random set from the gallery on each publish.
-const heroArtwork = await getRandomGallery(8);
+
+// Editable homepage content (CMS → "Home Page"). Every field falls back to a
+// sensible default if left blank, so the page never breaks.
+const home: Record<string, any> = (() => {
+  try {
+    const m = readFileSync('src/content/pages/home.md', 'utf-8').match(/^---\n([\s\S]*?)\n---/);
+    return m ? ((yaml.load(m[1]) as Record<string, any>) ?? {}) : {};
+  } catch { return {}; }
+})();
+
+const heroEyebrow = home.heroEyebrow || 'welcome to';
+const heroTitle = home.heroTitle || 'Creative Arts Association of Lakewood Ranch';
+const heroText = home.heroText || '';
+const storyTitle = home.storyTitle || 'From a Park to a Community';
+const storyParagraphs: string[] = String(home.introText || '').split('\n\n').map((p) => p.trim()).filter(Boolean);
+const storyImages: string[] = Array.isArray(home.storyImages) ? home.storyImages : [];
+
+// Hero slideshow: the owner's curated photo selection. If they leave it empty,
+// fall back to a random set from the gallery so the area is never blank.
+const heroImages: { image: string; alt: string }[] =
+  Array.isArray(home.heroImages) && home.heroImages.length
+    ? home.heroImages.map((src: string) => ({ image: src, alt: 'Artwork by a CAALR member' }))
+    : (await getRandomGallery(8)).map((item) => ({ image: item.data.image, alt: item.data.alt }));
 ---
 <BaseLayout title="Welcome">
 
@@ -16,19 +39,19 @@ const heroArtwork = await getRandomGallery(8);
   <section class="split-hero">
     <div class="container split-hero__inner">
       <div class="split-hero__text">
-        <p class="script script--lg" style="color: var(--color-coral);">welcome to</p>
-        <h1>Creative Arts Association of Lakewood Ranch</h1>
-        <p>A vibrant community of visual artists sharing their passion through exhibitions, education, and friendship since 2001</p>
+        <p class="script script--lg" style="color: var(--color-coral);">{heroEyebrow}</p>
+        <h1>{heroTitle}</h1>
+        <p>{heroText}</p>
         <div class="split-hero__actions">
           <a href="/artists/" class="btn btn--coral">Meet Our Artists</a>
           <a href="/events/" class="btn btn--outline">Upcoming Shows</a>
         </div>
       </div>
       <div class="split-hero__slideshow">
-        {heroArtwork.map((item, i) => (
+        {heroImages.map((item, i) => (
           <img
-            src={item.data.image}
-            alt={item.data.alt}
+            src={item.image}
+            alt={item.alt}
             class:list={['slideshow-img', { active: i === 0 }]}
           />
         ))}
@@ -57,18 +80,14 @@ const heroArtwork = await getRandomGallery(8);
   <section class="section section--warm">
     <div class="container story-section">
       <div class="story-section__slideshow">
-        <img src="/uploads/people/show-015.jpg" alt="Community enjoying an art show" class="people-img active" />
-        <img src="/uploads/people/show-012.jpg" alt="Guests browsing artwork" class="people-img" />
-        <img src="/uploads/people/show-013.jpg" alt="Artist with stained glass" class="people-img" />
-        <img src="/uploads/people/show-014.jpg" alt="Community at exhibition" class="people-img" />
-        <img src="/uploads/people/show-006.jpg" alt="Artist at gallery" class="people-img" />
-        <img src="/uploads/people/show-009.jpg" alt="Art show visitors" class="people-img" />
+        {storyImages.map((src, i) => (
+          <img src={src} alt="CAALR members at an art show" class:list={['people-img', { active: i === 0 }]} />
+        ))}
       </div>
       <div class="story-section__text">
         <p class="script script--lg" style="color: var(--color-coral); margin-bottom: 0;">our story</p>
-        <h2>From a Park to a Community</h2>
-        <p>In 2001, a handful of Lakewood Ranch artists began gathering in a local park — easels and sketchbooks in hand. From those humble beginnings, CAALR grew to include approximately 20 working artist members and over 50 supporting members.</p>
-        <p>Since 2002, we've hosted seasonal art shows that bring together artists working in watercolor, pottery, jewelry, stained glass, fiber art, mixed media, and more. Our 2015 Fall Art Show attracted over 500 guests!</p>
+        <h2>{storyTitle}</h2>
+        {storyParagraphs.map((p) => <p>{p}</p>)}
         <a href="/about/" class="btn btn--outline" style="margin-top: var(--space-xs);">Learn More About Us</a>
       </div>
     </div>

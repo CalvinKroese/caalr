@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.7.1",
     "astro": "^5.7.0",
-    "sharp": "^0.33.0"
+    "sharp": "^0.33.0",
+    "js-yaml": "^4.1.1"
   }
 }

@@ -1,14 +1,27 @@
 ---
+heroEyebrow: welcome to
 heroTitle: Creative Arts Association of Lakewood Ranch
-heroText: A community of visual artists inspiring creativity in Lakewood Ranch since 2001
-heroImage: /uploads/general-carol.jpg
+heroText: A vibrant community of visual artists sharing their passion through exhibitions, education, and friendship since 2001
+heroImages:
+  - /uploads/aubrey-freeman-5.jpg
+  - /uploads/benise-jones-1.jpeg
+  - /uploads/carol-krah-3.jpeg
+  - /uploads/carol-krah-1.jpeg
+  - /uploads/carol-krah-2.jpeg
+  - /uploads/stacey-lipton-7.jpeg
+  - /uploads/stacey-lipton-9.jpeg
+  - /uploads/stacey-lipton-8.jpeg
+storyTitle: From a Park to a Community
 introText: >
-  The Creative Arts Association of Lakewood Ranch (CAALR) is a not-for-profit
-  organization committed to inspiring professional visual artists. We provide
-  education, resources, and networking opportunities for artists working in a
-  wide range of mediums including watercolor, pottery, jewelry, stained glass,
-  fiber art, mixed media, and more.
+  In 2001, a handful of Lakewood Ranch artists began gathering in a local park — easels and sketchbooks in hand. From those humble beginnings, CAALR grew to include approximately 20 working artist members and over 50 supporting members.
 
 
-  Founded in 2001 as the "Creativity Group" when a handful of artists began gathering in a local park, CAALR has grown to include approximately 20 working artist members and over 50 supporting members. Since 2002, we have hosted seasonal art shows that attract hundreds of guests from across the Sarasota and Manatee county region.
+  Since 2002, we've hosted seasonal art shows that bring together artists working in watercolor, pottery, jewelry, stained glass, fiber art, mixed media, and more. Our 2015 Fall Art Show attracted over 500 guests!
+storyImages:
+  - /uploads/people/show-015.jpg
+  - /uploads/people/show-012.jpg
+  - /uploads/people/show-013.jpg
+  - /uploads/people/show-014.jpg
+  - /uploads/people/show-006.jpg
+  - /uploads/people/show-009.jpg
 ---
