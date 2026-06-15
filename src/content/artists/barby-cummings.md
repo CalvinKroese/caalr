@@ -20,7 +20,7 @@ status: active
 ---
 
 
-Barby Comins is an artisan specializing in wire-wrapped serving utensils, giftware, whimsical jewelry, and Judaica. She has been working with wire for over 20 years, creating pieces that blend functionality with artistic expression.
+Barby Cummings is an artisan specializing in wire-wrapped serving utensils, giftware, whimsical jewelry, and Judaica. She has been working with wire for over 20 years, creating pieces that blend functionality with artistic expression.
 
  
 

@@ -15,6 +15,10 @@ const { artist } = Astro.props;
 const { Content } = await artist.render();
 const { name, mediums, shortBio, email, website, instagram, facebook, featuredImage, isBoardMember, boardRole, photoIsTemp } = artist.data;
 
+// Some artists have no long biography yet — fall back to their short bio so the
+// page never shows a blank section.
+const hasBody = (artist.body ?? '').trim().length > 0;
+
 // Get the artist's slug (filename without .md)
 const artistSlug = artist.id.replace(/\.md$/, '');
 
@@ -63,7 +67,7 @@ const combinedGallery = allGallery
       </div>
 
       <div class="artist-profile__bio prose">
-        <Content />
+        {hasBody ? <Content /> : <p>{shortBio}</p>}
       </div>
 
       {combinedGallery.length > 0 ? (

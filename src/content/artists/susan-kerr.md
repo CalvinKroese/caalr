@@ -2,7 +2,7 @@
 name: Susan Kerr
 mediums:
   - Clay Raku Fired
-shortBio: Sue Kerr is a Pottery artist and member of CAALR.
+shortBio: Susan Kerr is a Raku pottery artist and member of CAALR.
 email: kerrs757@gmail.com
 website: ""
 instagram: ""
