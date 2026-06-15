@@ -2,10 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import ArtistCard from '../components/ArtistCard.astro';
-import { getActiveArtists, getUpcomingEvents, getFeaturedGallery, getRandomGallery, loadFrontmatter, paragraphs } from '../lib/content';
+import { getActiveArtists, getFeaturedEvent, getFeaturedGallery, getRandomGallery, loadFrontmatter, paragraphs } from '../lib/content';
 
 const artists = await getActiveArtists();
-const upcomingEvents = await getUpcomingEvents();
+const featuredEvent = await getFeaturedEvent();
 const featuredGallery = await getFeaturedGallery(6);
 
 // Editable homepage content (CMS → "Home Page"). Every field falls back to a
@@ -53,7 +53,7 @@ const heroImages: { image: string; alt: string }[] =
   </section>
 
   {/* Upcoming event banner */}
-  {upcomingEvents.length > 0 && (
+  {featuredEvent && (
     <section class="exhibition-banner">
       <div class="container exhibition-banner__inner">
         <div class="exhibition-banner__label">
@@ -61,10 +61,10 @@ const heroImages: { image: string; alt: string }[] =
           <span class="exhibition-banner__dot"></span>
         </div>
         <div class="exhibition-banner__info">
-          <h2>{upcomingEvents[0].data.title}</h2>
-          <p>{upcomingEvents[0].data.venueName}</p>
+          <h2>{featuredEvent.data.title}</h2>
+          <p>{featuredEvent.data.venueName}</p>
         </div>
-        <a href={`/events/${upcomingEvents[0].id.replace(/\.md$/, '')}/`} class="btn btn--outline">View Details</a>
+        <a href={`/events/${featuredEvent.id.replace(/\.md$/, '')}/`} class="btn btn--outline">View Details</a>
       </div>
     </section>
   )}

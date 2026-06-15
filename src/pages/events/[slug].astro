@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 const { event } = Astro.props;
 const { Content } = await event.render();
 const { title, startDate, endDate, venueName, venueAddress, featuredImage, galleryImages } = event.data;
-const upcoming = isUpcoming(startDate);
+const upcoming = isUpcoming(startDate, endDate);
 const mapsUrl = venueAddress ? `https://maps.google.com/?q=${encodeURIComponent(venueAddress)}` : '';
 ---
 <BaseLayout title={title} description={`${title} — ${formatDate(startDate)} at ${venueName}`}>

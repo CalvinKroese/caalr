@@ -36,7 +36,7 @@ const { title, date, sourceName, sourceUrl, featuredImage } = item.data;
 
       {sourceUrl && (
         <div style="margin-top: var(--space-md)">
-          <a href={sourceUrl} target="_blank" rel="noopener noreferrer" class="btn btn--secondary">Read Original Article (PDF)</a>
+          <a href={sourceUrl} target="_blank" rel="noopener noreferrer" class="btn btn--secondary">Read Original Article{sourceUrl.toLowerCase().endsWith('.pdf') ? ' (PDF)' : ''}</a>
         </div>
       )}
 

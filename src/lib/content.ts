@@ -45,11 +45,15 @@ export async function getAllArtists() {
   return artists.sort((a, b) => a.data.name.localeCompare(b.data.name));
 }
 
+// An event counts as "past" only once it has ENDED — a multi-day show that has
+// started but not finished is still upcoming/ongoing.
+const eventEnd = (e: any) => new Date(e.data.endDate ?? e.data.startDate);
+
 export async function getUpcomingEvents() {
   const events = await getCollection('events');
   const now = new Date();
   return events
-    .filter((e) => new Date(e.data.startDate) >= now)
+    .filter((e) => eventEnd(e) >= now)
     .sort((a, b) => new Date(a.data.startDate).getTime() - new Date(b.data.startDate).getTime());
 }
 
@@ -57,8 +61,15 @@ export async function getPastEvents() {
   const events = await getCollection('events');
   const now = new Date();
   return events
-    .filter((e) => new Date(e.data.startDate) < now)
+    .filter((e) => eventEnd(e) < now)
     .sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
+}
+
+// The event shown in the homepage banner: a "Feature on Homepage" upcoming
+// event if any is flagged, otherwise the soonest upcoming one.
+export async function getFeaturedEvent() {
+  const upcoming = await getUpcomingEvents();
+  return upcoming.find((e) => e.data.featured) ?? upcoming[0] ?? null;
 }
 
 export async function getAllEvents() {
@@ -96,7 +107,11 @@ export async function getRandomGallery(limit = 8) {
 
 export async function getNewsItems() {
   const news = await getCollection('news');
-  return news.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+  // Featured items pinned to the top, then newest first.
+  return news.sort((a, b) => {
+    if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
+    return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+  });
 }
 
 export function formatDate(date: Date): string {
@@ -107,6 +122,6 @@ export function formatDate(date: Date): string {
   }).format(date);
 }
 
-export function isUpcoming(date: Date): boolean {
-  return new Date(date) >= new Date();
+export function isUpcoming(startDate: Date, endDate?: Date): boolean {
+  return new Date(endDate ?? startDate) >= new Date();
 }
