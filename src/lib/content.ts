@@ -77,30 +77,8 @@ export async function getAllEvents() {
 
 export async function getGalleryItems() {
   const gallery = await getCollection('gallery');
-  return gallery.sort((a, b) => {
-    if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
-    return (b.data.year ?? 0) - (a.data.year ?? 0);
-  });
-}
-
-export async function getFeaturedGallery(limit = 6) {
-  const gallery = await getCollection('gallery');
-  return gallery
-    .filter((g) => g.data.featured)
-    .sort((a, b) => (b.data.year ?? 0) - (a.data.year ?? 0))
-    .slice(0, limit);
-}
-
-// Returns a random selection of gallery items. Runs at build time, so the
-// set reshuffles on each publish. Skips items whose image is missing a path.
-export async function getRandomGallery(limit = 8) {
-  const gallery = (await getCollection('gallery')).filter((g) => g.data.image);
-  const arr = [...gallery];
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr.slice(0, limit);
+  // Newest first (by year); the homepage picks a monthly subset client-side.
+  return gallery.sort((a, b) => (b.data.year ?? 0) - (a.data.year ?? 0));
 }
 
 export async function getNewsItems() {

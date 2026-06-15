@@ -2,11 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import ArtistCard from '../components/ArtistCard.astro';
-import { getActiveArtists, getFeaturedEvent, getFeaturedGallery, getRandomGallery, loadFrontmatter, paragraphs } from '../lib/content';
+import { getActiveArtists, getFeaturedEvent, getGalleryItems, loadFrontmatter, paragraphs } from '../lib/content';
 
 const artists = await getActiveArtists();
 const featuredEvent = await getFeaturedEvent();
-const featuredGallery = await getFeaturedGallery(6);
+// Full gallery + artist pools; the page picks a MONTHLY subset in the browser
+// (see the script below) and only the shown images are loaded — no rebuild needed.
+const galleryPool = (await getGalleryItems()).map((g) => ({ image: g.data.image, alt: g.data.alt }));
 
 // Editable homepage content (CMS → "Home Page"). Every field falls back to a
 // sensible default if left blank, so the page never breaks.
@@ -18,10 +20,6 @@ const heroText = home.heroText || '';
 const storyTitle = home.storyTitle || 'From a Park to a Community';
 const storyParagraphs = paragraphs(home.introText);
 const storyImages: string[] = Array.isArray(home.storyImages) ? home.storyImages : [];
-
-// Hero slideshow: a random set of artwork drawn from the Gallery, reshuffled on
-// each publish. (Add gallery artwork and it can appear here automatically.)
-const heroImages = (await getRandomGallery(8)).map((item) => ({ image: item.data.image, alt: item.data.alt }));
 ---
 <BaseLayout title="Welcome">
 
@@ -37,13 +35,9 @@ const heroImages = (await getRandomGallery(8)).map((item) => ({ image: item.data
           <a href="/events/" class="btn btn--outline">Upcoming Shows</a>
         </div>
       </div>
-      <div class="split-hero__slideshow">
-        {heroImages.map((item, i) => (
-          <img
-            src={item.image}
-            alt={item.alt}
-            class:list={['slideshow-img', { active: i === 0 }]}
-          />
+      <div class="split-hero__slideshow" data-monthly="hero">
+        {galleryPool.map((item) => (
+          <img data-src={item.image} alt={item.alt} class="slideshow-img" />
         ))}
       </div>
     </div>
@@ -88,9 +82,9 @@ const heroImages = (await getRandomGallery(8)).map((item) => ({ image: item.data
     <section class="section">
       <div class="container">
         <SectionHeading label="meet our" title="Artists" subtitle="Talented artists working across many mediums" />
-        <div class="grid grid--4">
-          {artists.slice(0, 8).map((artist) => (
-            <ArtistCard name={artist.data.name} slug={artist.id.replace(/\.md$/, '')} mediums={artist.data.mediums} shortBio={artist.data.shortBio} featuredImage={artist.data.featuredImage} photoIsTemp={artist.data.photoIsTemp} />
+        <div class="grid grid--4" data-monthly="artists">
+          {artists.map((artist) => (
+            <ArtistCard name={artist.data.name} slug={artist.id.replace(/\.md$/, '')} mediums={artist.data.mediums} shortBio={artist.data.shortBio} featuredImage={artist.data.featuredImage} photoIsTemp={artist.data.photoIsTemp} deferred />
           ))}
         </div>
         <div class="text-center" style="margin-top: var(--space-md);">
@@ -101,14 +95,14 @@ const heroImages = (await getRandomGallery(8)).map((item) => ({ image: item.data
   )}
 
   {/* Gallery Preview */}
-  {featuredGallery.length > 0 && (
+  {galleryPool.length > 0 && (
     <section class="section section--alt">
       <div class="container">
-        <SectionHeading label="from the studio" title="Gallery" subtitle="Recent works by our members" />
-        <div class="gallery-preview">
-          {featuredGallery.map((item) => (
-            <div class="gallery-preview__item">
-              <img src={item.data.image} alt={item.data.alt} loading="lazy" width="400" height="400" />
+        <SectionHeading label="from the studio" title="Gallery" subtitle="A look at our members' work" />
+        <div class="gallery-preview" data-monthly="preview">
+          {galleryPool.map((item) => (
+            <div class="gallery-preview__item is-hidden">
+              <img data-src={item.image} alt={item.alt} loading="lazy" width="400" height="400" />
             </div>
           ))}
         </div>
@@ -261,25 +255,45 @@ const heroImages = (await getRandomGallery(8)).map((item) => ({ image: item.data
 </style>
 
 <script is:inline>
-  // Art slideshow (hero)
-  const artImgs = document.querySelectorAll('.slideshow-img');
-  if (artImgs.length > 1) {
-    let current = 0;
-    setInterval(() => {
-      artImgs[current].classList.remove('active');
-      current = (current + 1) % artImgs.length;
-      artImgs[current].classList.add('active');
-    }, 4000);
-  }
+  (function () {
+    // Deterministic MONTHLY selection: same for everyone within a month, changes
+    // on the 1st, no rebuild needed. Only the chosen images are ever loaded.
+    function rng(seed) {
+      return function () {
+        seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+        var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+    function monthlyPick(total, n, offset) {
+      var d = new Date();
+      var rnd = rng(d.getFullYear() * 12 + d.getMonth() + (offset || 0));
+      var idx = []; for (var i = 0; i < total; i++) idx.push(i);
+      for (var i = idx.length - 1; i > 0; i--) { var j = Math.floor(rnd() * (i + 1)); var t = idx[i]; idx[i] = idx[j]; idx[j] = t; }
+      return idx.slice(0, Math.min(n, total));
+    }
+    function load(img) { if (img && img.dataset && img.dataset.src) img.src = img.dataset.src; }
 
-  // People slideshow (story section)
-  const peopleImgs = document.querySelectorAll('.people-img');
-  if (peopleImgs.length > 1) {
-    let current = 0;
-    setInterval(() => {
-      peopleImgs[current].classList.remove('active');
-      current = (current + 1) % peopleImgs.length;
-      peopleImgs[current].classList.add('active');
-    }, 5000);
-  }
+    // Hero artwork — 8 per month
+    var hero = document.querySelector('[data-monthly="hero"]');
+    var live = [];
+    if (hero) {
+      var imgs = hero.querySelectorAll('.slideshow-img');
+      monthlyPick(imgs.length, 8, 0).forEach(function (i, k) { var el = imgs[i]; load(el); el.classList.add('is-live'); if (k === 0) el.classList.add('active'); live.push(el); });
+    }
+    if (live.length > 1) { var c = 0; setInterval(function () { live[c].classList.remove('active'); c = (c + 1) % live.length; live[c].classList.add('active'); }, 4000); }
+
+    // Gallery preview — 6 per month (separate draw)
+    var pv = document.querySelector('[data-monthly="preview"]');
+    if (pv) { var items = pv.querySelectorAll('.gallery-preview__item'); monthlyPick(items.length, 6, 1000).forEach(function (i) { var it = items[i]; it.classList.remove('is-hidden'); load(it.querySelector('img')); }); }
+
+    // Featured artists — 8 per month
+    var ag = document.querySelector('[data-monthly="artists"]');
+    if (ag) { var cards = ag.querySelectorAll('.artist-card'); monthlyPick(cards.length, 8, 500).forEach(function (i) { var card = cards[i]; card.classList.remove('is-hidden'); load(card.querySelector('img')); }); }
+
+    // People/community slideshow (server-rendered, not monthly)
+    var people = document.querySelectorAll('.people-img');
+    if (people.length > 1) { var p = 0; setInterval(function () { people[p].classList.remove('active'); p = (p + 1) % people.length; people[p].classList.add('active'); }, 5000); }
+  })();
 </script>

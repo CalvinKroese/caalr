@@ -6,15 +6,17 @@ interface Props {
   shortBio: string;
   featuredImage: string;
   photoIsTemp?: boolean;
+  deferred?: boolean;
 }
 
-const { name, slug, mediums, shortBio, featuredImage, photoIsTemp = false } = Astro.props;
+const { name, slug, mediums, shortBio, featuredImage, photoIsTemp = false, deferred = false } = Astro.props;
 ---
 
-<a href={`/artists/${slug}/`} class="artist-card card">
+<a href={`/artists/${slug}/`} class:list={['artist-card', 'card', { 'is-hidden': deferred }]}>
   <div class="artist-card__image-wrap">
     <img
-      src={featuredImage}
+      src={deferred ? undefined : featuredImage}
+      data-src={deferred ? featuredImage : undefined}
       alt={`Photo of ${name}`}
       class="card__image"
       loading="lazy"

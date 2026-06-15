@@ -84,7 +84,7 @@ collections:
       - { label: "Description for Screen Readers", name: "alt", widget: "string", hint: "Describe what is shown in the photo (for visually impaired visitors)" }
       - { label: "Artist", name: "artistSlug", widget: "string", required: false, hint: "Enter the artist's URL name (e.g. wilma-kroese) — image will appear on their page" }
       - { label: "Year", name: "year", widget: "number", required: false }
-      - { label: "Feature on Homepage?", name: "featured", widget: "boolean", default: false }
+      # No homepage toggle: the homepage auto-rotates a monthly selection of artwork.
 
   - name: "news"
     label: "News & Highlights"

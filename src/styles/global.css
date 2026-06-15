@@ -84,6 +84,9 @@ img {
   left: 0;
 }
 
+/* Hidden until the monthly-rotation script reveals it (so unshown items don't load images). */
+.is-hidden { display: none !important; }
+
 /* ===== Layout ===== */
 .container {
   width: 100%;

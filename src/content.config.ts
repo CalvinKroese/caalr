@@ -39,7 +39,6 @@ const gallery = defineCollection({
     alt: z.string(),
     artistSlug: z.string().optional().default(''),
     year: z.number().optional(),
-    featured: z.boolean().default(false),
   }),
 });
 
