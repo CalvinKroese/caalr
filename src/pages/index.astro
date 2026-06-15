@@ -2,9 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import ArtistCard from '../components/ArtistCard.astro';
-import { getActiveArtists, getUpcomingEvents, getFeaturedGallery, getRandomGallery } from '../lib/content';
-import { readFileSync } from 'node:fs';
-import yaml from 'js-yaml';
+import { getActiveArtists, getUpcomingEvents, getFeaturedGallery, getRandomGallery, loadFrontmatter, paragraphs } from '../lib/content';
 
 const artists = await getActiveArtists();
 const upcomingEvents = await getUpcomingEvents();
@@ -12,18 +10,13 @@ const featuredGallery = await getFeaturedGallery(6);
 
 // Editable homepage content (CMS → "Home Page"). Every field falls back to a
 // sensible default if left blank, so the page never breaks.
-const home: Record<string, any> = (() => {
-  try {
-    const m = readFileSync('src/content/pages/home.md', 'utf-8').match(/^---\n([\s\S]*?)\n---/);
-    return m ? ((yaml.load(m[1]) as Record<string, any>) ?? {}) : {};
-  } catch { return {}; }
-})();
+const home = loadFrontmatter('src/content/pages/home.md');
 
 const heroEyebrow = home.heroEyebrow || 'welcome to';
 const heroTitle = home.heroTitle || 'Creative Arts Association of Lakewood Ranch';
 const heroText = home.heroText || '';
 const storyTitle = home.storyTitle || 'From a Park to a Community';
-const storyParagraphs: string[] = String(home.introText || '').split('\n\n').map((p) => p.trim()).filter(Boolean);
+const storyParagraphs = paragraphs(home.introText);
 const storyImages: string[] = Array.isArray(home.storyImages) ? home.storyImages : [];
 
 // Hero slideshow: the owner's curated photo selection. If they leave it empty,

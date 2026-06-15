@@ -1,5 +1,5 @@
 ---
-missionTitle: About CAALR
+missionTitle: Our Mission
 missionBody: >
   The Creative Arts Association of Lakewood Ranch is a not-for-profit
   organization committed to inspiring professional visual artists. We support

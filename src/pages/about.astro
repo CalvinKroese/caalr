@@ -2,38 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import { readFileSync } from 'node:fs';
+import { loadFrontmatter, paragraphs, formatDate } from '../lib/content';
 
-const about = (() => {
-  try {
-    const raw = readFileSync('src/content/pages/about.md', 'utf-8');
-    const match = raw.match(/^---\n([\s\S]*?)\n---/);
-    if (!match) return {};
-    const sections = match[1].split(/\n(?=\w)/);
-    const result: Record<string, any> = {};
-    for (const section of sections) {
-      const lines = section.split('\n');
-      const [key, ...rest] = lines[0].split(':');
-      if (key?.trim() === 'resources') {
-        const resources: {label: string; url: string}[] = [];
-        for (let i = 1; i < lines.length; i++) {
-          const labelMatch = lines[i]?.match(/label:\s*"(.+?)"/);
-          const urlMatch = lines[i+1]?.match(/url:\s*"(.+?)"/);
-          if (labelMatch && urlMatch) {
-            resources.push({ label: labelMatch[1], url: urlMatch[1] });
-            i++;
-          }
-        }
-        result.resources = resources;
-      } else if (rest.length && rest.join(':').trim().startsWith('|')) {
-        result[key.trim()] = lines.slice(1).map(l => l.replace(/^\s{2}/, '')).join('\n').trim();
-      } else if (rest.length) {
-        result[key.trim()] = rest.join(':').trim().replace(/^["']|["']$/g, '');
-      }
-    }
-    return result;
-  } catch { return {}; }
-})();
-
+const about = loadFrontmatter('src/content/pages/about.md');
 const board = JSON.parse(readFileSync('src/content/settings/board.json', 'utf-8'));
 const meetings = JSON.parse(readFileSync('src/content/settings/meetings.json', 'utf-8'));
 ---
@@ -54,15 +25,15 @@ const meetings = JSON.parse(readFileSync('src/content/settings/meetings.json', '
     <div class="container about-grid">
       <div class="about-main prose">
         <h2>{about.missionTitle || 'Our Mission'}</h2>
-        {about.missionBody?.split('\n\n').map((p: string) => <p>{p}</p>)}
+        {paragraphs(about.missionBody).map((p) => <p>{p}</p>)}
 
         <!-- Inline photo break -->
         <div class="about-photo-break">
           <img src="/uploads/people/show-006.jpg" alt="Artist at gallery exhibition" loading="lazy" />
         </div>
 
-        <h2>Membership</h2>
-        {about.membershipBody?.split('\n\n').map((p: string) => {
+        <h2>{about.membershipTitle || 'Membership'}</h2>
+        {paragraphs(about.membershipBody).map((p) => {
           if (p.startsWith('**')) {
             const match = p.match(/^\*\*(.+?)\*\*\s*(.*)/);
             return match ? <p><strong>{match[1]}</strong> {match[2]}</p> : <p>{p}</p>;
@@ -75,9 +46,9 @@ const meetings = JSON.parse(readFileSync('src/content/settings/meetings.json', '
         <div class="about-card">
           <h3>Board of Directors</h3>
           <ul class="board-list">
-            {board.members.map((m: {name: string; role: string}) => (
+            {board.members.map((m: {name: string; role: string; artistSlug?: string}) => (
               <li class="board-list__item">
-                <strong>{m.name}</strong>
+                <strong>{m.artistSlug ? <a href={`/artists/${m.artistSlug}/`}>{m.name}</a> : m.name}</strong>
                 <span class="text-muted">{m.role}</span>
               </li>
             ))}
@@ -101,6 +72,16 @@ const meetings = JSON.parse(readFileSync('src/content/settings/meetings.json', '
             <p class="text-muted"><strong>Networking:</strong> {meetings.networkingTime}</p>
             <p class="text-muted"><strong>General meeting:</strong> {meetings.generalTime}</p>
           </div>
+          {meetings.dates && meetings.dates.length > 0 && (
+            <div style="margin-top: var(--space-sm)">
+              <p class="text-muted"><strong>Upcoming dates:</strong></p>
+              <ul style="margin: var(--space-xs) 0 0; padding-left: var(--space-md);">
+                {meetings.dates.map((d: {date: string; type: string}) => (
+                  <li class="text-muted">{formatDate(new Date(d.date))}{d.type ? ` — ${d.type}` : ''}</li>
+                ))}
+              </ul>
+            </div>
+          )}
           {meetings.notes && <p class="text-muted" style="margin-top: var(--space-xs); font-style: italic">{meetings.notes}</p>}
         </div>
 

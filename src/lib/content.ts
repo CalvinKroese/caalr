@@ -1,4 +1,22 @@
 import { getCollection } from 'astro:content';
+import { readFileSync } from 'node:fs';
+import yaml from 'js-yaml';
+
+// Robustly read a markdown page's frontmatter (handles folded `>` / literal `|`
+// scalars and lists). Single source of truth so pages don't hand-roll parsers.
+export function loadFrontmatter(path: string): Record<string, any> {
+  try {
+    const m = readFileSync(path, 'utf-8').match(/^---\n([\s\S]*?)\n---/);
+    return m ? ((yaml.load(m[1]) as Record<string, any>) ?? {}) : {};
+  } catch {
+    return {};
+  }
+}
+
+// Split a folded/literal markdown body into paragraphs (blank-line separated).
+export function paragraphs(text: unknown): string[] {
+  return String(text ?? '').split(/\n{1,}/).map((p) => p.trim()).filter(Boolean);
+}
 
 export async function getActiveArtists() {
   const artists = await getCollection('artists');
