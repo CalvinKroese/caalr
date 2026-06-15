@@ -9,9 +9,6 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/laurie-zelen-headshot.jpg
 photoIsTemp: false
-galleryImages:
-  - src: /uploads/lauri-zelen-1.jpg
-    caption: Artwork by Laurie Zeelen
 isBoardMember: false
 boardRole: ""
 status: active

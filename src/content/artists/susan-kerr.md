@@ -9,13 +9,6 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/sue-kerr-headshot.jpeg
 photoIsTemp: false
-galleryImages:
-  - src: /uploads/sue-kerr-7.jpeg
-    caption: Artwork by Susan Kerr
-  - src: /uploads/sue-kerr-6.jpeg
-    caption: Artwork by Susan Kerr
-  - src: /uploads/sue-kerr-5.jpeg
-    caption: Artwork by Susan Kerr
 isBoardMember: false
 boardRole: ""
 status: active

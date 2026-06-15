@@ -12,10 +12,6 @@ const artists = defineCollection({
     facebook: z.string().optional().default(''),
     featuredImage: z.string(),
     photoIsTemp: z.boolean().default(false),
-    galleryImages: z.array(z.object({
-      src: z.string(),
-      caption: z.string().optional().default(''),
-    })).default([]),
     isBoardMember: z.boolean().default(false),
     boardRole: z.string().optional().default(''),
     status: z.enum(['active', 'alumni']).default('active'),

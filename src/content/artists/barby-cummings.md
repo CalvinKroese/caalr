@@ -9,11 +9,6 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/barby-cummings-headshot.jpg
 photoIsTemp: false
-galleryImages:
-  - src: /uploads/barby-cummings-2.jpg
-    caption: Artwork by Barby Cummings
-  - src: /uploads/barby-cummings-6.jpeg
-    caption: Artwork by BarbiyCummings
 isBoardMember: true
 boardRole: At Large
 status: active

@@ -9,9 +9,6 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/barbara-kaplan-headshot.jpg
 photoIsTemp: false
-galleryImages:
-  - src: /uploads/barbara-kaplan-1.jpg
-    caption: Artwork by Barbara Kaplan
 isBoardMember: false
 boardRole: ""
 status: active

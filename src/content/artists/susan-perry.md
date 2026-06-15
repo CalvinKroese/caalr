@@ -9,7 +9,6 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/artists/placeholder.svg
 photoIsTemp: true
-galleryImages: []
 isBoardMember: true
 boardRole: Secretary
 status: active

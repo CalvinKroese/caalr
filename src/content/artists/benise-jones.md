@@ -9,9 +9,6 @@ instagram: ""
 facebook: ""
 featuredImage: /uploads/benise-joned-headshot.jpeg
 photoIsTemp: false
-galleryImages:
-  - src: /uploads/benise-jones-1.jpeg
-    caption: Artwork by Benise Jones
 isBoardMember: true
 boardRole: Treasurer
 status: active
