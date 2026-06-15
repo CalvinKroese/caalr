@@ -135,6 +135,8 @@
     render: function () {
       var data = this.props.entry.get('data').toJS();
       var w = this.props.widgetFor;
+      var g = this.props.getAsset;
+      var thumb = { height: '90px', width: '120px', objectFit: 'cover', borderRadius: '6px' };
       // About page
       if (data.missionBody !== undefined || data.membershipBody !== undefined) {
         return h('section', { className: 'section' },
@@ -142,10 +144,16 @@
             data.heroScript ? h('p', { className: 'text-muted', style: { fontStyle: 'italic' } }, data.heroScript) : null,
             h('h1', {}, data.heroTitle || 'About'),
             data.heroSubtitle ? h('p', { className: 'text-muted' }, data.heroSubtitle) : null,
+            toArr(data.bannerPhotos).length
+              ? h('div', { style: { display: 'flex', gap: '4px', flexWrap: 'wrap', margin: 'var(--space-sm) 0' } },
+                  toArr(data.bannerPhotos).map(function (src) { return mkImg(g, src, null, '', thumb); }))
+              : null,
             h('h2', { style: { marginTop: 'var(--space-lg)' } }, data.missionTitle || 'Our Mission'),
+            data.missionPhoto ? mkImg(g, data.missionPhoto, null, '', { width: '100%', maxHeight: '220px', objectFit: 'cover', borderRadius: 'var(--radius-card)', margin: 'var(--space-sm) 0' }) : null,
             h('div', { className: 'prose' }, w('missionBody')),
             h('h2', { style: { marginTop: 'var(--space-lg)' } }, data.membershipTitle || 'Membership'),
-            h('div', { className: 'prose' }, w('membershipBody'))
+            h('div', { className: 'prose' }, w('membershipBody')),
+            data.sidebarPhoto ? mkImg(g, data.sidebarPhoto, null, '', { width: '100%', maxHeight: '220px', objectFit: 'cover', borderRadius: 'var(--radius-card)', margin: 'var(--space-md) 0' }) : null
           )
         );
       }
