@@ -178,5 +178,8 @@
   CMS.registerPreviewTemplate('events', EventPreview);
   CMS.registerPreviewTemplate('news', NewsPreview);
   CMS.registerPreviewTemplate('gallery', GalleryPreview);
-  CMS.registerPreviewTemplate('pages', PagesPreview);
+  // "pages" is a files collection — Decap registers its preview by each FILE name.
+  ['pages', 'home', 'about', 'artists_page', 'events_page', 'news_page', 'gallery_page'].forEach(function (n) {
+    CMS.registerPreviewTemplate(n, PagesPreview);
+  });
 })();
