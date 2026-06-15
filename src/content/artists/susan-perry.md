@@ -3,7 +3,7 @@ name: Susan Perry
 mediums:
   - Jewelry
 shortBio: Susan Perry is a Jewelry artist and member of CAALR.
-email: perrysfl50@gmail.com
+email: perrysfl150@gmail.com
 website: ""
 instagram: ""
 facebook: ""

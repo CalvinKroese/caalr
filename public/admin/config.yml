@@ -159,18 +159,8 @@ collections:
           - { label: "Tagline", name: "tagline", widget: "string" }
           - { label: "Contact Email", name: "contactEmail", widget: "string" }
           - { label: "Footer Text", name: "footerText", widget: "text" }
-      - label: "Board of Directors"
-        name: "board"
-        file: "src/content/settings/board.json"
-        fields:
-          - label: "Board Members"
-            name: "members"
-            widget: "list"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Role", name: "role", widget: "string", hint: "e.g. President, Vice President, At Large" }
-              - { label: "Email (optional)", name: "email", widget: "string", required: false }
-              - { label: "Artist Page (optional)", name: "artistSlug", widget: "string", required: false, hint: "If they are also an artist member, enter their URL name" }
+      # Board of Directors is derived from artist profiles — set "Board Member?"
+      # and "Board Role" on each artist. No separate board list to keep in sync.
       - label: "Meeting Schedule"
         name: "meetings"
         file: "src/content/settings/meetings.json"

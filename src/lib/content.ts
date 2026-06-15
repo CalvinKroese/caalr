@@ -18,6 +18,21 @@ export function paragraphs(text: unknown): string[] {
   return String(text ?? '').split(/\n{1,}/).map((p) => p.trim()).filter(Boolean);
 }
 
+// Board of directors, derived from artist profiles (single source of truth:
+// each artist's "Board Member?" + "Board Role"). Ordered by office, then name.
+const BOARD_ROLE_ORDER = ['President', 'Vice President', 'Secretary', 'Treasurer'];
+export async function getBoardMembers() {
+  const artists = await getCollection('artists');
+  return artists
+    .filter((a) => a.data.isBoardMember && a.data.status === 'active')
+    .map((a) => ({ name: a.data.name, role: a.data.boardRole || '', slug: a.id.replace(/\.md$/, '') }))
+    .sort((x, y) => {
+      const xr = BOARD_ROLE_ORDER.indexOf(x.role); const yr = BOARD_ROLE_ORDER.indexOf(y.role);
+      const xi = xr === -1 ? 99 : xr; const yi = yr === -1 ? 99 : yr;
+      return xi !== yi ? xi - yi : x.name.localeCompare(y.name);
+    });
+}
+
 export async function getActiveArtists() {
   const artists = await getCollection('artists');
   return artists

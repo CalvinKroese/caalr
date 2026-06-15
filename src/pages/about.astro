@@ -2,10 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import { readFileSync } from 'node:fs';
-import { loadFrontmatter, paragraphs, formatDate } from '../lib/content';
+import { loadFrontmatter, paragraphs, formatDate, getBoardMembers } from '../lib/content';
 
 const about = loadFrontmatter('src/content/pages/about.md');
-const board = JSON.parse(readFileSync('src/content/settings/board.json', 'utf-8'));
+const board = await getBoardMembers();
 const meetings = JSON.parse(readFileSync('src/content/settings/meetings.json', 'utf-8'));
 ---
 <BaseLayout title="About" description="Learn about the Creative Arts Association of Lakewood Ranch — our mission, board, meetings, and membership.">
@@ -46,9 +46,9 @@ const meetings = JSON.parse(readFileSync('src/content/settings/meetings.json', '
         <div class="about-card">
           <h3>Board of Directors</h3>
           <ul class="board-list">
-            {board.members.map((m: {name: string; role: string; artistSlug?: string}) => (
+            {board.map((m) => (
               <li class="board-list__item">
-                <strong>{m.artistSlug ? <a href={`/artists/${m.artistSlug}/`}>{m.name}</a> : m.name}</strong>
+                <strong><a href={`/artists/${m.slug}/`}>{m.name}</a></strong>
                 <span class="text-muted">{m.role}</span>
               </li>
             ))}
