@@ -7,12 +7,14 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
   description = 'Creative Arts Association of Lakewood Ranch — A community of visual artists inspiring creativity since 2001',
   ogImage = '/uploads/logo/caalr-logo-4x.png',
+  noindex = false,
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
@@ -26,8 +28,8 @@ const ogImageUrl = new URL(ogImage, Astro.site);
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
 
-  {/* Block search indexing on demo subdomain — remove when pointed to caalr.com */}
-  {Astro.site?.hostname?.includes('netlify.app') && <meta name="robots" content="noindex, nofollow" />}
+  {/* Keep specific pages (e.g. 404) out of search, plus a safety net for any non-production (netlify.app) build. */}
+  {(noindex || Astro.site?.hostname?.includes('netlify.app')) && <meta name="robots" content="noindex, nofollow" />}
 
   <!-- Open Graph -->
   <meta property="og:title" content={title} />
