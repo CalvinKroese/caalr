@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://caalr.netlify.app',
+  site: 'https://www.caalr.com',
   output: 'static',
   integrations: [sitemap()],
   image: {

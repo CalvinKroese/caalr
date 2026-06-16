@@ -12,10 +12,12 @@ interface Props {
 const {
   title,
   description = 'Creative Arts Association of Lakewood Ranch — A community of visual artists inspiring creativity since 2001',
-  ogImage,
+  ogImage = '/uploads/logo/caalr-logo-4x.png',
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+// Social platforms require an absolute image URL.
+const ogImageUrl = new URL(ogImage, Astro.site);
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +34,13 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalUrl} />
-  {ogImage && <meta property="og:image" content={ogImage} />}
+  <meta property="og:image" content={ogImageUrl} />
+
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
 
   <link rel="canonical" href={canonicalUrl} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

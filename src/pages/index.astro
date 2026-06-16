@@ -21,7 +21,10 @@ const storyTitle = home.storyTitle || 'From a Park to a Community';
 const storyParagraphs = paragraphs(home.introText);
 const storyImages: string[] = Array.isArray(home.storyImages) ? home.storyImages : [];
 ---
-<BaseLayout title="Welcome">
+<BaseLayout
+  title="Creative Arts Association of Lakewood Ranch"
+  description="A nonprofit fostering visual artists in Lakewood Ranch through exhibitions, education, and community since 2001. Create. Connect. Inspire."
+>
 
   {/* Split hero — text left, rotating ART photos right */}
   <section class="split-hero">
