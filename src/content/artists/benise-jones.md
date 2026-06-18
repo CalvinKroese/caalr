@@ -1,7 +1,7 @@
 ---
 name: Benise Jones
 mediums:
-  - Paper Art
+  - Mixed Media
 shortBio: Benise Jones is a Paper Art artist and member of CAALR.
 email: JMB2015@verizon.net
 website: ""
