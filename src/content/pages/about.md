@@ -2,6 +2,11 @@
 heroTitle: About CAALR
 heroSubtitle: Our mission, our people, our community
 heroScript: get to know us
+bannerPhotos:
+  - /uploads/general-carol.jpg
+  - /uploads/general-2-barby.jpg
+  - /uploads/general-1-wilma.jpg
+  - /uploads/general-stacey.jpg
 missionTitle: Our Mission
 missionBody: >
   The Creative Arts Association of Lakewood Ranch is a not-for-profit
@@ -14,6 +19,7 @@ missionBody: >
 
 
   We also partner with local institutions for juried shows at Art Center Manatee and participate in ASID Shows in Sarasota.
+missionPhoto: /uploads/people/show-006.jpg
 membershipTitle: Membership
 membershipBody: >-
   **Artist Members** undergo a jury review process. There is a $25 entry fee for
@@ -25,12 +31,6 @@ membershipBody: >-
 
 
   Interested in becoming a member? Contact President Carol Krah for more information.
-bannerPhotos:
-  - /uploads/people/show-015.jpg
-  - /uploads/people/show-012.jpg
-  - /uploads/people/show-013.jpg
-  - /uploads/people/show-014.jpg
-missionPhoto: /uploads/people/show-006.jpg
 sidebarPhoto: /uploads/people/show-007.jpg
 resources:
   - label: Art Center Manatee
