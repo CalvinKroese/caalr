@@ -8,6 +8,9 @@ bannerPhotos:
   - /uploads/general-1-wilma.jpg
   - /uploads/general-stacey.jpg
   - /uploads/general-carole.jpg
+  - /uploads/lisa-sweeney-1.jpeg
+  - /uploads/general-debra.jpg
+  - /uploads/aubrey-freeman-1.jpg
 missionTitle: Our Mission
 missionBody: >
   The Creative Arts Association of Lakewood Ranch is a not-for-profit
