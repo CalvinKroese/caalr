@@ -14,4 +14,8 @@ introText: >
   Since 2002, we've hosted seasonal art shows that bring together artists working in watercolor, pottery, jewelry, stained glass, fiber art, mixed media, and more. Our 2015 Fall Art Show attracted over 500 guests!
 storyImages:
   - /uploads/general.jpg
+  - /uploads/benise-jones-10.jpeg
+  - /uploads/barbu-cummings-7.jpg
+  - /uploads/aubrey-freeman-1.jpg
+  - /uploads/wilma-kroese-1.jpeg
 ---
