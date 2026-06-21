@@ -1,8 +1,8 @@
 ---
-name: Barby Cummings
+name: Barby Comins
 mediums:
   - Wire Art
-shortBio: Barby Cummings is a Wire Art artist and member of CAALR.
+shortBio: Barby Comins is a Wire Art artist and member of CAALR.
 email: barbedwiredesigns@yahoo.com
 website: ""
 instagram: ""
