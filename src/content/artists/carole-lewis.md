@@ -7,7 +7,7 @@ email: cjlew7506@yahoo.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/carole-lewis-headshot.jpeg
+featuredImage: /uploads/carole-lewis.jpg
 photoIsTemp: false
 boardRole: ""
 ---
