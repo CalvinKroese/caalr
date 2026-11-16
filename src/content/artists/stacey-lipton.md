@@ -7,7 +7,7 @@ email: slinteriors140@msn.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/stacey-lipton-headshot.jpg
+featuredImage: /uploads/stacey-lipton.jpg
 photoIsTemp: false
 boardRole: Vice President
 ---
