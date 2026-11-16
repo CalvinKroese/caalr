@@ -7,7 +7,7 @@ email: JMB2015@verizon.net
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/benise-joned-headshot.jpeg
+featuredImage: /uploads/benise-jones.jpg
 photoIsTemp: false
 boardRole: Treasurer
 ---
