@@ -7,7 +7,7 @@ email: patty50@yahoo.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/patty-notarianni-headshot.jpeg
+featuredImage: /uploads/patty-notarianni.jpg
 photoIsTemp: false
 boardRole: ""
 ---
