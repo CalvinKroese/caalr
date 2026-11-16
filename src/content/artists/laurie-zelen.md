@@ -7,7 +7,7 @@ email: ""
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/laurie-zelen-headshot.jpg
+featuredImage: /uploads/laurie.jpg
 photoIsTemp: false
 boardRole: ""
 ---
