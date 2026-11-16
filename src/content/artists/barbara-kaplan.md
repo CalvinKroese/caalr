@@ -7,7 +7,7 @@ email: kaplanbb@yahoo.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/barbara-kaplan-headshot.jpg
+featuredImage: /uploads/barbara-kaplan.jpg
 photoIsTemp: false
 boardRole: ""
 ---
