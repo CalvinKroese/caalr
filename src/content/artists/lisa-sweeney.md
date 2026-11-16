@@ -7,7 +7,7 @@ email: edlisa211@gmail.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/lisa-sweeney-headshot.jpeg
+featuredImage: /uploads/lisa-sweeney.jpg
 photoIsTemp: false
 boardRole: ""
 ---
