@@ -7,7 +7,7 @@ email: CarolRKrah@gmail.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/carol-krah-headshot.jpg
+featuredImage: /uploads/carol-krah.jpg
 photoIsTemp: false
 boardRole: President
 ---
