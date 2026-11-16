@@ -7,7 +7,7 @@ email: lkmfancifulcreations@gmail.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/linda-mc-millan-headshot.jpeg
+featuredImage: /uploads/linda-mc-millan.jpg
 photoIsTemp: false
 boardRole: ""
 ---
