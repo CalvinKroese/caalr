@@ -7,7 +7,7 @@ email: marylitle@msn.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/mary-little-headshot.jpg
+featuredImage: /uploads/mary-little.jpg
 photoIsTemp: false
 boardRole: ""
 ---
