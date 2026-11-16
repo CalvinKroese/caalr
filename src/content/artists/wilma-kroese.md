@@ -7,7 +7,7 @@ email: WKpottery@yahoo.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/wilma-kroese-headshot-2.jpg
+featuredImage: /uploads/wilma-kroese.jpg
 photoIsTemp: false
 boardRole: At Large
 ---
