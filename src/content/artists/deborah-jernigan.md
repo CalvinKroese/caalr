@@ -7,7 +7,7 @@ email: deborahjsdesigns@yahoo.com
 website: ""
 instagram: ""
 facebook: ""
-featuredImage: /uploads/debra-jernigan-headshot.jpg
+featuredImage: /uploads/deborah-jernigan.jpg
 photoIsTemp: false
 boardRole: ""
 ---
